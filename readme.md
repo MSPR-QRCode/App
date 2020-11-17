@@ -1,1 +1,0 @@
-App MSPR QR CODE !
