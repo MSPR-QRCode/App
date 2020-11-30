@@ -14,6 +14,15 @@ Faites bien attention, on utilise yarn et pas npm.
 | redux               |  4.0.5  |                 Gestion du store(state global) |
 | react-redux         |  7.2.2  |         Gestion de redux plus facile sur react |
 
+## Conseil à appliquer
+
+- Utiliser au maximum les fonctions pour les components. Si le components est simples, une classe ne sert à rien. En revanche si on une gestion de state, cycle de vie du components etc. 
+- De meme pour les restes de l'applications, crée une classe est rarement nécessaire pour un projet JS (de gros projet JS se font entièrement avec des fonctions sans aucune logique objets)
+- On utilise yarn et pas npm. C'est mieux pour ce projets : https://yarnpkg.com/
+- Les appels API sont à faire dans le services 
+- Pour le store : un dossier par module (state, reducer et action)
+- Pour la documentation : On utilise la JS Doc : https://jsdoc.app/
+
 ## Installer le projet
 
 ```
