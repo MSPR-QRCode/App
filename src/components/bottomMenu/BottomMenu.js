@@ -1,24 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, {useState, useEffect} from 'react';
 import {
   View,
   TouchableOpacity,
   Dimensions,
   Animated,
   StyleSheet,
-} from "react-native";
-import { BottomMenuItem } from "./BottomMenuItem";
-import { blue } from "../../styles/color";
-import { exp } from "react-native-reanimated";
+} from 'react-native';
+import {BottomMenuItem} from './BottomMenuItem';
+import {red} from '../../styles/color';
+import {exp} from 'react-native-reanimated';
 
-export const BottomMenu = ({
-  state,
-  descriptors,
-  navigation,
-}) => {
+export const BottomMenu = ({state, descriptors, navigation}) => {
   const [translateValue] = useState(new Animated.Value(0));
-  const totalWidth = Dimensions.get("window").width;
+  const totalWidth = Dimensions.get('window').width;
   const tabWidth = totalWidth / state.routes.length;
-  
+
   const animateSlider = (index) => {
     Animated.spring(translateValue, {
       toValue: index * tabWidth,
@@ -30,34 +26,22 @@ export const BottomMenu = ({
   useEffect(() => {
     animateSlider(state.index);
   }, [state.index]);
-  
-  return (
-    <View style={[style.tabContainer, { width: totalWidth }]}>
-      <View style={{ flexDirection: "row" }}>
-        <Animated.View
-          style={[
-            style.slider,
-            {
-              transform: [{ translateX: translateValue }],
-              width: tabWidth - 20,
-            },
-          ]}
-        />
 
+  return (
+    <View style={[style.tabContainer, {width: totalWidth}]}>
+      <View style={{flexDirection: 'row'}}>
+      
         {state.routes.map((route, index) => {
-          const { options } = descriptors[route.key];
-          const label =
-            options.tabBarLabel !== undefined
-              ? options.tabBarLabel
-              : options.title !== undefined
-              ? options.title
-              : route.name;
+          const {options} = descriptors[route.key];
+          const label = options.icon;
+
+          const title = options.title;
 
           const isFocused = state.index === index;
 
           const onPress = () => {
             const event = navigation.emit({
-              type: "tabPress",
+              type: 'tabPress',
               target: route.key,
               canPreventDefault: true,
             });
@@ -71,7 +55,7 @@ export const BottomMenu = ({
 
           const onLongPress = () => {
             navigation.emit({
-              type: "tabLongPress",
+              type: 'tabLongPress',
               target: route.key,
             });
           };
@@ -79,15 +63,15 @@ export const BottomMenu = ({
           return (
             <TouchableOpacity
               accessibilityRole="button"
-              accessibilityStates={isFocused ? ["selected"] : []}
+              accessibilityStates={isFocused ? ['selected'] : []}
               accessibilityLabel={options.tabBarAccessibilityLabel}
               testID={options.tabBarTestID}
               onPress={onPress}
               onLongPress={onLongPress}
-              style={{ flex: 1 }}
-              key={index}
-            >
+              style={{flex: 1}}
+              key={index}>
               <BottomMenuItem
+                title={title}
                 iconName={label.toString()}
                 isCurrent={isFocused}
               />
@@ -101,28 +85,19 @@ export const BottomMenu = ({
 
 const style = StyleSheet.create({
   tabContainer: {
-    height: 60,
+    height: 55,
     shadowOffset: {
       width: 0,
       height: -1,
     },
     shadowOpacity: 0.1,
     shadowRadius: 4.0,
-    backgroundColor: "white",
+    backgroundColor: 'white',
     borderTopRightRadius: 20,
     borderTopLeftRadius: 20,
     elevation: 10,
-    position: "absolute",
-    bottom: 0,
-  },
-  slider: {
-    height: 5,
-    position: "absolute",
-    top: 0,
-    left: 10,
-    backgroundColor: blue,
-    borderRadius: 10,
+    marginTop: -20,
   },
 });
 
-export default  BottomMenu; 
+export default BottomMenu;

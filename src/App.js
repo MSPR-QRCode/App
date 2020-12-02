@@ -5,7 +5,7 @@ import {SafeAreaProvider, StyleSheet, StatusBar} from 'react-native';
 import { NavigationContainer } from "@react-navigation/native";
 
 //Import Navigation
-import {TabNavigation } from './navigations/TabNavigation'; 
+import {TabNavigation, StackNavigator } from './navigations/TabNavigation'; 
 
 
 const App = () => {
@@ -14,7 +14,7 @@ const App = () => {
       <StatusBar />
       <NavigationContainer>
         {/* <SafeAreaProvider> */}
-          <TabNavigation />
+          <StackNavigator />
         {/* </SafeAreaProvider> */}
       </NavigationContainer>
     </>

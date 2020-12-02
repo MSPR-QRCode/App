@@ -1,26 +1,28 @@
 //import React
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 
 class DetailPromo extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
-
-    render() {
-        return (
-            <View style={styles.container}>
-                <Text>Detail Promo</Text>
-            </View>
-        )
-    }
-
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text>Detail Promo</Text>
+       
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1, 
-        alignItems: 'center', 
-        justifyContent: 'center', 
-    }
-})
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
 
-export default DetailPromo; 
+export default DetailPromo;

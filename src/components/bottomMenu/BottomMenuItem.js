@@ -1,33 +1,36 @@
 //Import React 
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, Text} from 'react-native';
 import PropTypes from 'prop-types';
 
 //Import Icon
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 //Import Style 
-import {blue, grey} from '../../styles/color';
+import {red, grey} from '../../styles/color';
 
 
-export const BottomMenuItem = ({iconName, isCurrent}) => {
+export const BottomMenuItem = ({title, iconName, isCurrent}) => {
   return (
     <View
       style={styles.bottomMenuItem}>
       <Icon
         name={iconName}
-        size={32}
-        style={{ color: isCurrent ? blue : grey }}
+        size={30}
+        style={{ color: isCurrent ? red : grey }}
       />
+      <Text style={{fontSize:12, color: isCurrent ? red : grey }}>{title}</Text>
+     
     </View>
   );
 };
 
 //Protypes
-// BottomMenuItem.propTypes = {
-//   iconName: PropTypes.string.isRequired,
-//   isCurrent: PropTypes
-// };
+BottomMenuItem.propTypes = {
+  title: PropTypes.string.isRequired, 
+  iconName: PropTypes.string.isRequired,
+  isCurrent: PropTypes.bool
+};
 
 //Styles 
 const styles = StyleSheet.create({
@@ -36,5 +39,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     }, 
+    textMenuItem: {
+      fontSize: 0.8
+    }
 })
 
