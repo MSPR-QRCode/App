@@ -2,6 +2,9 @@
 import React from 'react';
 import {View, Text, Button, StyleSheet} from 'react-native';
 
+//import components
+import DefaultLayout from '../components/layouts/DefaultLayout'
+
 export class Scanner extends React.Component {
 
     constructor(props){
@@ -10,13 +13,16 @@ export class Scanner extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
+     <DefaultLayout titleHeader={"Scanner"}>
+        <View style={styles.container}>
         <Text>Scanner</Text>
         <Button
           title="Go to Notifications"
           onPress={() => this.props.navigation.navigate('Detail')}
         />
       </View>
+     </DefaultLayout>
+     
     );
   }
 }

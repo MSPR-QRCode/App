@@ -2,14 +2,23 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
+//import components
+import DefaultLayout from '../components/layouts/DefaultLayout'
+
+//import Style
+import stylePage from '../styles/stylePage'; 
+
 class ListPromoUser extends React.Component {
 
 
     render() {
         return (
-            <View style={styles.container}>
+           <DefaultLayout titleHeader={"Mes codes"}>
+                  <View style={{...stylePage.container_page, ...styles.container }}>
                 <Text>ListPromoUser</Text>
             </View>
+           </DefaultLayout>
+         
         )
     }
 
@@ -18,7 +27,7 @@ class ListPromoUser extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1, 
-        backgroundColor: "#a29bfe",
+        marginTop:-20, 
         alignItems: 'center', 
         justifyContent: 'center', 
     }

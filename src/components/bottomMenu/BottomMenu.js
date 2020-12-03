@@ -63,6 +63,7 @@ export const BottomMenu = ({state, descriptors, navigation}) => {
           return (
             <TouchableOpacity
               accessibilityRole="button"
+              activeOpacity={0.5}
               accessibilityStates={isFocused ? ['selected'] : []}
               accessibilityLabel={options.tabBarAccessibilityLabel}
               testID={options.tabBarTestID}

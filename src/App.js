@@ -2,21 +2,20 @@
 import 'react-native-gesture-handler';
 import React from 'react';
 import {SafeAreaProvider, StyleSheet, StatusBar} from 'react-native';
-import { NavigationContainer } from "@react-navigation/native";
+import {red} from './styles/color'
+
 
 //Import Navigation
-import {TabNavigation, StackNavigator } from './navigations/TabNavigation'; 
+import Navigation  from './navigations'; 
 
 
 const App = () => {
   return (
     <>
-      <StatusBar />
-      <NavigationContainer>
-        {/* <SafeAreaProvider> */}
-          <StackNavigator />
-        {/* </SafeAreaProvider> */}
-      </NavigationContainer>
+      <StatusBar backgroundColor={red} />
+          <Navigation /> 
+    
+     
     </>
   );
 };

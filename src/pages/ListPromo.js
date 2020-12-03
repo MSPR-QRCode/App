@@ -2,14 +2,22 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
+//import components
+import DefaultLayout from '../components/layouts/DefaultLayout'
+
+//import Style
+import stylePage from '../styles/stylePage'; 
+
 class ListPromo extends React.Component {
 
 
     render() {
         return (
-            <View style={styles.container}>
+            <DefaultLayout titleHeader={"Promotions"}>
+            <View style={{...styles.container, ...stylePage.container_page}}>
                 <Text>ListPromo</Text>
             </View>
+            </DefaultLayout>
         )
     }
 
@@ -18,10 +26,9 @@ class ListPromo extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1, 
-        backgroundColor: "#55efc4",
         alignItems: 'center', 
-        justifyContent: 'flex-end', 
-        paddingBottom:20
+        justifyContent: 'center', 
+     
     }
 })
 
