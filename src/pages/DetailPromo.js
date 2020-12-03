@@ -1,6 +1,6 @@
 //import React
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, StatusBar} from 'react-native';
 
 class DetailPromo extends React.Component {
   constructor(props) {
@@ -9,10 +9,13 @@ class DetailPromo extends React.Component {
 
   render() {
     return (
+      <>
+      <StatusBar backgroundColor={'black'}/>
       <View style={styles.container}>
         <Text>Detail Promo</Text>
        
       </View>
+    </> 
     );
   }
 }

@@ -1,19 +1,25 @@
 //import React
 import React from "react"; 
-import {View, Text, StyleSheet} from 'react-native'
+import {View,  StyleSheet, StatusBar} from 'react-native'
 import PropTypes from 'prop-types';
 
 //Import Components
 import Header from './Header'
 
+//import styles
+import {red} from '../../styles/color'; 
+
 
 const DefaultLayout = ({children, titleHeader}) => {
 
     return (
+        <>
+        <StatusBar backgroundColor={red} />
         <View style={styles.main_comtainer}>
             <Header title={titleHeader} /> 
             { children }
         </View>
+    </> 
     )
 }
 DefaultLayout.propTypes = {
