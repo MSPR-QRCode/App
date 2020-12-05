@@ -37,7 +37,7 @@ export const TabNavigation = () => {
   return (
     <View style={{flex: 1, position: 'relative'}}>
       <Tab.Navigator
-        initialRouteName="fullscreen"
+        initialRouteName="scanner"
         tabBar={(props) => <BottomMenu {...props} />}>
         <Tab.Screen
           options={{title: 'Promotions', icon: 'format-list-bulleted'}}

@@ -15,7 +15,7 @@ class ListPromo extends React.Component {
         return (
             <DefaultLayout titleHeader={"Promotions"}>
             <View style={{...styles.container, ...stylePage.container_page}}>
-                <Text>ListPromo</Text>
+                <Text>ListPromos</Text>
             </View>
             </DefaultLayout>
         )
