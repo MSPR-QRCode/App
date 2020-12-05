@@ -13,6 +13,7 @@ const MaskScanner = () => {
 
   const row1 = numbers.map((column) => (
     <View
+      key={column}
       style={
         column === 1 ? styles.col1 : column === 3 ? styles.col3 : styles.col
       }></View>
@@ -20,6 +21,7 @@ const MaskScanner = () => {
 
   const row3 = numbers.map((column) => (
     <View
+        key={column}
       style={
         column === 1 ? styles.col4 : column === 3 ? styles.col6 : styles.col
       }></View>
