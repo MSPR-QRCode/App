@@ -8,6 +8,7 @@ const lengthMask = width / 1.75;
 const sizeBorder = 8;
 const borderRadius = 4;
 
+
 const MaskScanner = () => {
   const numbers = [1, 2, 3];
 
@@ -21,7 +22,7 @@ const MaskScanner = () => {
 
   const row3 = numbers.map((column) => (
     <View
-        key={column}
+    key={column}
       style={
         column === 1 ? styles.col4 : column === 3 ? styles.col6 : styles.col
       }></View>
