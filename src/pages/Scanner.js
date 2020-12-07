@@ -1,6 +1,6 @@
 //import React
 import React from 'react';
-import {View, Text, Button, StyleSheet} from 'react-native';
+import {View, Button, StyleSheet} from 'react-native';
 import { RNCamera } from 'react-native-camera'
 
 //import components
@@ -14,10 +14,12 @@ export class Scanner extends React.Component {
     }
 
   render() {
+    const navigation = this.props.navigation; 
     return (
      <DefaultLayout titleHeader={"Scanner"}>
         <RNCamera style={styles.camera}>
-        <MaskScanner /> 
+        {/* <MaskScanner />  */}
+        <Button title="GO NAVIGATION" onPress={() => navigation.navigate('Detail')} />
         </RNCamera>
      </DefaultLayout>
      
