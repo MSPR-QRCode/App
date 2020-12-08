@@ -6,7 +6,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {View} from 'react-native';
 
 //Import BottomMenu
-// import BottomMenu from '../components/bottomMenu/BottomMenu';
+import BottomMenu from '../components/bottomMenu/BottomMenu';
 
 // //Import Components
 // import Scanner from '../pages/Scanner';
@@ -37,8 +37,10 @@ export const TabNavigation = () => {
   return (
     <View style={{flex: 1, position: 'relative'}}>
       <Tab.Navigator
-        initialRouteName="scanner">
-          {/* tabBar={(props) => <BottomMenu {...props} />} */}
+        initialRouteName="scanner"
+         tabBar={(props) => <BottomMenu {...props} />}
+        >
+       
         <Tab.Screen
           options={{title: 'Promotions', icon: 'format-list-bulleted'}}
           name="listPromo"
