@@ -8,6 +8,7 @@ target 'mspr_qrcode_app' do
 
   use_react_native!(:path => config["reactNativePath"])
 
+
   target 'mspr_qrcode_appTests' do
     inherit! :complete
     # Pods for testing
