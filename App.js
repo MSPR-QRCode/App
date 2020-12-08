@@ -108,6 +108,7 @@ const styles = StyleSheet.create({
     padding: 4,
     paddingRight: 12,
     textAlign: 'right',
+    fontFamily: "Montserrat-ExtraBold",
   },
 });
 

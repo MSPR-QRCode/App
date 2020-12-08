@@ -20,6 +20,9 @@
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		DC6F5901376F3456395C80CD /* libPods-mspr_qrcode_app.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 721E15315580F86E91774B4C /* libPods-mspr_qrcode_app.a */; };
 		E9E78F98EB0AB2A76904EBBA /* libPods-mspr_qrcode_app-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D445F411B1A00CF0DC1A791 /* libPods-mspr_qrcode_app-tvOSTests.a */; };
+		C9B908E0E2854FBEAA4D9458 /* Montserrat-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4543B47396C14E3783E83868 /* Montserrat-ExtraBold.ttf */; };
+		7421BA4DD74444B88D9A12B9 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A82F605C334048BA840FF06F /* Montserrat-Medium.ttf */; };
+		62560637144647548CA03DC1 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 245F50B2248B4857AA4CEA74 /* Montserrat-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +70,9 @@
 		CEC5A7FCC80CF8289FFD0211 /* Pods-mspr_qrcode_app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mspr_qrcode_app.release.xcconfig"; path = "Target Support Files/Pods-mspr_qrcode_app/Pods-mspr_qrcode_app.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
+		4543B47396C14E3783E83868 /* Montserrat-ExtraBold.ttf */ = {isa = PBXFileReference; name = "Montserrat-ExtraBold.ttf"; path = "../public/font/Montserrat-ExtraBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A82F605C334048BA840FF06F /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; name = "Montserrat-Medium.ttf"; path = "../public/font/Montserrat-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		245F50B2248B4857AA4CEA74 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; name = "Montserrat-Regular.ttf"; path = "../public/font/Montserrat-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +187,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				5929A86EF348609C9E36FD87 /* Pods */,
+				94217DD17B2243F8BA9FE5A8 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -197,6 +204,17 @@
 			);
 			name = Products;
 			sourceTree = "<group>";
+		};
+		94217DD17B2243F8BA9FE5A8 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				4543B47396C14E3783E83868 /* Montserrat-ExtraBold.ttf */,
+				A82F605C334048BA840FF06F /* Montserrat-Medium.ttf */,
+				245F50B2248B4857AA4CEA74 /* Montserrat-Regular.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -342,6 +360,9 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				C9B908E0E2854FBEAA4D9458 /* Montserrat-ExtraBold.ttf in Resources */,
+				7421BA4DD74444B88D9A12B9 /* Montserrat-Medium.ttf in Resources */,
+				62560637144647548CA03DC1 /* Montserrat-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
