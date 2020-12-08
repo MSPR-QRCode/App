@@ -8,8 +8,8 @@ import {View} from 'react-native';
 //Import BottomMenu
 import BottomMenu from '../components/bottomMenu/BottomMenu';
 
-// //Import Components
-// import Scanner from '../pages/Scanner';
+//Import Components
+import Scanner from '../pages/Scanner';
 import DetailPromo from '../pages/DetailPromo';
 import ListPromo from '../pages/ListPromo';
 import ListPromoUser from '../pages/ListPromoUser';
@@ -46,11 +46,11 @@ export const TabNavigation = () => {
           name="listPromo"
           component={ListPromo}
         />
-        {/* <Tab.Screen
+        <Tab.Screen
           options={{title: 'Scanner', icon: 'fullscreen'}}
           name="scanner"
           component={Scanner}
-        /> */}
+        />
         <Tab.Screen
           options={{title: 'Mes codes', icon: 'person'}}
           name="listPromoUse"
