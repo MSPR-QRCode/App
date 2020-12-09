@@ -2,6 +2,7 @@
 import React from 'react';
 import {View, StyleSheet, Text} from 'react-native';
 import PropTypes from 'prop-types';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 //Import Icon
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -11,9 +12,12 @@ import {red, grey} from '../../styles/color';
 
 
 export const BottomMenuItem = ({title, iconName, isCurrent}) => {
+
+  const inset = useSafeAreaInsets();
+
   return (
     <View
-      style={styles.bottomMenuItem}>
+      style={{...styles.bottomMenuItem, paddingBottom: inset.bottom}}>
       <Icon
         name={iconName}
         size={30}

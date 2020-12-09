@@ -2,6 +2,7 @@
 import React from "react"; 
 import {View,  StyleSheet, StatusBar} from 'react-native'
 import PropTypes from 'prop-types';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 //Import Components
 import Header from './Header'
@@ -10,12 +11,16 @@ import Header from './Header'
 import {red} from '../../styles/color'; 
 
 
+
+
 const DefaultLayout = ({children, titleHeader}) => {
+
+    const inset = useSafeAreaInsets();  
 
     return (
         <>
         <StatusBar backgroundColor={red} />
-        <View style={styles.main_comtainer}>
+        <View style={{...styles.main_comtainer, paddingTop: inset.top}}>
             <Header title={titleHeader} /> 
             { children }
         </View>
