@@ -33,7 +33,8 @@ export const BottomMenu = ({state, descriptors, navigation}) => {
   }, [state.index]);
 
   return (
-    <View style={[style.tabContainer, {width: totalWidth}]}>
+    <View style={{paddingBottom:inset.bottom/1.5, backgroundColor: 'white'}}>
+    <View style={[style.tabContainer, {width: totalWidth, height: 55}]}>
       <View style={{flexDirection: 'row'}}>
       
         {state.routes.map((route, index) => {
@@ -86,22 +87,23 @@ export const BottomMenu = ({state, descriptors, navigation}) => {
         })}
       </View>
     </View>
+    </View>
   );
 };
 
 const style = StyleSheet.create({
   tabContainer: {
-    height: 55,
+    //height: 55,
     shadowOffset: {
-      width: 0,
-      height: -1,
+     width: 0,
+     height: -3,
     },
     shadowOpacity: 0.1,
-    shadowRadius: 4.0,
+    shadowRadius: 2.0,
     backgroundColor: 'white',
     borderTopRightRadius: 20,
     borderTopLeftRadius: 20,
-    elevation: 10,
+    elevation: 0,
     marginTop: -20,
   },
 });
