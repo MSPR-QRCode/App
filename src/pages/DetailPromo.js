@@ -7,7 +7,6 @@ import {
   Text,
   StyleSheet,
   StatusBar,
-  SafeAreaView,
   Dimensions,
 } from 'react-native';
 
@@ -24,16 +23,17 @@ class DetailPromo extends React.Component {
   render() {
     return (
       <>
-        {/* <StatusBar
+        <StatusBar
           barStyle="light-content"
           backgroundColor="transparent"
           translucent={true}
-        /> */}
-         <StatusBar
-          barStyle="light-content"
-          backgroundColor="red"
         />
-        <SafeAreaView style={styles.container}>
+        {/* <StatusBar
+          barStyle="light-content"
+          backgroundColor="blue"
+        /> */}
+        <View style={styles.container}>
+        
           <ScrollView style={styles.container}>
             <Image
               style={styles.image_detail}
@@ -69,7 +69,7 @@ class DetailPromo extends React.Component {
               </View>
             </View>
           </ScrollView>
-        </SafeAreaView>
+        </View>
       </>
     );
   }

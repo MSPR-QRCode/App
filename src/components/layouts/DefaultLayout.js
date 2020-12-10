@@ -19,9 +19,9 @@ const DefaultLayout = ({children, titleHeader}) => {
 
     return (
         <>
-        
-        <View style={{...styles.main_comtainer, paddingTop: inset.top}}>
-            <StatusBar backgroundColor={red} />
+        <StatusBar backgroundColor={red} /> 
+        <View style={{...styles.main_comtainer, marginTop: inset.top}}>
+          
             <Header title={titleHeader} /> 
             { children }
         </View>
@@ -36,7 +36,7 @@ DefaultLayout.propTypes = {
 const styles = StyleSheet.create({
     main_comtainer : {
         flex: 1,
-        backgroundColor: red
+        // backgroundColor: red
     }
 })
 

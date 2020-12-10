@@ -33,7 +33,7 @@ export const BottomMenu = ({state, descriptors, navigation}) => {
   }, [state.index]);
 
   return (
-    <View style={[style.tabContainer, {width: totalWidth,  paddingBottom: inset.bottom}]}>
+    <View style={[style.tabContainer, {width: totalWidth}]}>
       <View style={{flexDirection: 'row'}}>
       
         {state.routes.map((route, index) => {
