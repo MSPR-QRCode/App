@@ -1,6 +1,6 @@
 //import React
 import React from "react"; 
-import {View, Text, StyleSheet} from 'react-native'
+import {View, Text, StyleSheet, Platform} from 'react-native'
 import PropTypes from 'prop-types';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
@@ -14,7 +14,7 @@ const Header = ({title}) => {
     const inset = useSafeAreaInsets();
 
     return (
-        <View style={{...styles.header,paddingTop: inset.top }}>
+        <View style={{...styles.header, paddingTop: Platform.OS == "ios" ? inset.top : 10 }}>
             <Text style={styles.headerTitle}>{ title }</Text>
         </View>
     )

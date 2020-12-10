@@ -13,24 +13,9 @@ import {BottomMenuItem} from './BottomMenuItem';
 
 
 export const BottomMenu = ({state, descriptors, navigation}) => {
-  const [translateValue] = useState(new Animated.Value(0));
+
   const totalWidth = Dimensions.get('window').width;
-  const tabWidth = totalWidth / state.routes.length;
-
   const inset = useSafeAreaInsets();
-
-  const animateSlider = (index) => {
-
-    Animated.spring(translateValue, {
-      toValue: index * tabWidth,
-      velocity: 10,
-      useNativeDriver: true,
-    }).start();
-  };
-
-  useEffect(() => {
-    animateSlider(state.index);
-  }, [state.index]);
 
   return (
     <View style={{paddingBottom:inset.bottom/1.5, backgroundColor: 'white'}}>
@@ -56,7 +41,6 @@ export const BottomMenu = ({state, descriptors, navigation}) => {
               navigation.navigate(route.name);
             }
 
-            animateSlider(index);
           };
 
           const onLongPress = () => {
