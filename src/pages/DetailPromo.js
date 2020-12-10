@@ -23,15 +23,15 @@ class DetailPromo extends React.Component {
   render() {
     return (
       <>
-        <StatusBar
+        {/* <StatusBar
           barStyle="light-content"
           backgroundColor="transparent"
           translucent={true}
-        />
-        {/* <StatusBar
+        /> */}
+        <StatusBar
           barStyle="light-content"
           backgroundColor="blue"
-        /> */}
+        />
         <View style={styles.container}>
         
           <ScrollView style={styles.container}>
