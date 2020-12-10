@@ -6,16 +6,21 @@ import {
   Animated,
   StyleSheet,
 } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+
+//import component
 import {BottomMenuItem} from './BottomMenuItem';
-import {red} from '../../styles/color';
-import {exp} from 'react-native-reanimated';
+
 
 export const BottomMenu = ({state, descriptors, navigation}) => {
   const [translateValue] = useState(new Animated.Value(0));
   const totalWidth = Dimensions.get('window').width;
   const tabWidth = totalWidth / state.routes.length;
 
+  const inset = useSafeAreaInsets();
+
   const animateSlider = (index) => {
+
     Animated.spring(translateValue, {
       toValue: index * tabWidth,
       velocity: 10,
@@ -28,7 +33,7 @@ export const BottomMenu = ({state, descriptors, navigation}) => {
   }, [state.index]);
 
   return (
-    <View style={[style.tabContainer, {width: totalWidth}]}>
+    <View style={[style.tabContainer, {width: totalWidth,  paddingBottom: inset.bottom}]}>
       <View style={{flexDirection: 'row'}}>
       
         {state.routes.map((route, index) => {
