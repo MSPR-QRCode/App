@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
       fontFamily:  "Montserrat-Medium"
     },  
     //
+    
     title: {
         fontSize: 24,
         fontFamily:  "Montserrat-ExtraBold"  
