@@ -6,29 +6,20 @@ import {
   Animated,
   StyleSheet,
 } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+
+//import component
 import {BottomMenuItem} from './BottomMenuItem';
-import {red} from '../../styles/color';
-import {exp} from 'react-native-reanimated';
+
 
 export const BottomMenu = ({state, descriptors, navigation}) => {
-  const [translateValue] = useState(new Animated.Value(0));
+
   const totalWidth = Dimensions.get('window').width;
-  const tabWidth = totalWidth / state.routes.length;
-
-  const animateSlider = (index) => {
-    Animated.spring(translateValue, {
-      toValue: index * tabWidth,
-      velocity: 10,
-      useNativeDriver: true,
-    }).start();
-  };
-
-  useEffect(() => {
-    animateSlider(state.index);
-  }, [state.index]);
+  const inset = useSafeAreaInsets();
 
   return (
-    <View style={[style.tabContainer, {width: totalWidth}]}>
+    <View style={{paddingBottom:inset.bottom/1.5, backgroundColor: 'white'}}>
+    <View style={[style.tabContainer, {width: totalWidth, height: 55}]}>
       <View style={{flexDirection: 'row'}}>
       
         {state.routes.map((route, index) => {
@@ -50,7 +41,6 @@ export const BottomMenu = ({state, descriptors, navigation}) => {
               navigation.navigate(route.name);
             }
 
-            animateSlider(index);
           };
 
           const onLongPress = () => {
@@ -81,22 +71,23 @@ export const BottomMenu = ({state, descriptors, navigation}) => {
         })}
       </View>
     </View>
+    </View>
   );
 };
 
 const style = StyleSheet.create({
   tabContainer: {
-    height: 55,
+    //height: 55,
     shadowOffset: {
-      width: 0,
-      height: -1,
+     width: 0,
+     height: -3,
     },
     shadowOpacity: 0.1,
-    shadowRadius: 4.0,
+    shadowRadius: 2.0,
     backgroundColor: 'white',
     borderTopRightRadius: 20,
     borderTopLeftRadius: 20,
-    elevation: 10,
+    elevation: 0,
     marginTop: -20,
   },
 });

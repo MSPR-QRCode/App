@@ -1,15 +1,19 @@
 //import React
 import React from "react"; 
-import {View, Text, StyleSheet} from 'react-native'
+import {View, Text, StyleSheet, Platform} from 'react-native'
 import PropTypes from 'prop-types';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 //import styles
 import { red } from "../../styles/color"
 
+
 const Header = ({title}) => {
 
+    const inset = useSafeAreaInsets();
+
     return (
-        <View style={styles.header}>
+        <View style={{...styles.header, paddingTop: inset.top + 10 }}>
             <Text style={styles.headerTitle}>{ title }</Text>
         </View>
     )
@@ -21,14 +25,14 @@ Header.propTypes = {
 
 const styles = StyleSheet.create({
     header: {
-        backgroundColor: red,
-        paddingVertical: 10, 
+        backgroundColor: red, 
+        paddingBottom: 10, 
         borderBottomRightRadius: 20, 
         borderBottomLeftRadius: 20, 
         marginBottom:-20, 
         zIndex: 100
         
-    },
+    }, 
     headerTitle:{
         textAlign: 'center', 
         color: 'white', 

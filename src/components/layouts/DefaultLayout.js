@@ -2,6 +2,7 @@
 import React from "react"; 
 import {View,  StyleSheet, StatusBar} from 'react-native'
 import PropTypes from 'prop-types';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 //Import Components
 import Header from './Header'
@@ -10,12 +11,14 @@ import Header from './Header'
 import {red} from '../../styles/color'; 
 
 
+
+
 const DefaultLayout = ({children, titleHeader}) => {
 
     return (
         <>
-        <StatusBar backgroundColor={red} />
-        <View style={styles.main_comtainer}>
+        <StatusBar barStyle="light-content" backgroundColor={red}  translucent={true} /> 
+        <View style={{...styles.main_comtainer,}}> 
             <Header title={titleHeader} /> 
             { children }
         </View>
@@ -30,6 +33,7 @@ DefaultLayout.propTypes = {
 const styles = StyleSheet.create({
     main_comtainer : {
         flex: 1,
+        //backgroundColor: 'white'
     }
 })
 

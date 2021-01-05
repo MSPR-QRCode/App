@@ -38,7 +38,9 @@ export const TabNavigation = () => {
     <View style={{flex: 1, position: 'relative'}}>
       <Tab.Navigator
         initialRouteName="scanner"
-        tabBar={(props) => <BottomMenu {...props} />}>
+         tabBar={(props) => <BottomMenu {...props} />}
+        >
+       
         <Tab.Screen
           options={{title: 'Promotions', icon: 'format-list-bulleted'}}
           name="listPromo"

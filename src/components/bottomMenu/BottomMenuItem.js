@@ -11,6 +11,7 @@ import {red, grey} from '../../styles/color';
 
 
 export const BottomMenuItem = ({title, iconName, isCurrent}) => {
+
   return (
     <View
       style={styles.bottomMenuItem}>

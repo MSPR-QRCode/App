@@ -1,6 +1,6 @@
 //import React
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, Button, StyleSheet } from 'react-native';
 
 //import components
 import DefaultLayout from '../components/layouts/DefaultLayout'
@@ -12,10 +12,14 @@ class ListPromoUser extends React.Component {
 
 
     render() {
+        const navigation = this.props.navigation; 
         return (
            <DefaultLayout titleHeader={"Mes codes"}>
                   <View style={{...stylePage.container_page, ...styles.container }}>
-                <Text>ListPromoUser</Text>
+                  <Button
+        title="Go to Profile"
+        onPress={() => navigation.navigate('Detail')}
+      />
             </View>
            </DefaultLayout>
          
