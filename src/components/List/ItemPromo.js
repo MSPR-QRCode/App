@@ -5,7 +5,7 @@ const ItemPromo = ({item}) => {
    return (
     <TouchableOpacity style={styles.item}>
     <Text style={styles.title}>{item.name}</Text>
-    <Text >Date limite : {item.date}</Text>
+    <Text style={styles.date}>Date limite : {item.date}</Text>
     <Text style={styles.message}>{item.message}</Text>
   </TouchableOpacity>
    ); 
@@ -13,19 +13,21 @@ const ItemPromo = ({item}) => {
 
 const styles = StyleSheet.create({
     item: {
-    //   backgroundColor: "red",
+       backgroundColor: "white",
       margin: 10,
       borderRadius: 5,
-      padding: 5,
-      shadowOpacity: 0.23,
-      shadowRadius: 2.62,
-      elevation: 4,
+      padding: 10,
       shadowColor: "#000",
       shadowOffset: {
-      width: 0,
+        width: 0,
         height: 3,
       },
-      fontFamily:  "Montserrat-Medium"
+      shadowOpacity: 0.27,
+      shadowRadius: 4.65,
+
+      elevation: 6,
+      fontFamily:  "Montserrat-Medium",
+
     },  
     //
     
@@ -33,8 +35,12 @@ const styles = StyleSheet.create({
         fontSize: 24,
         fontFamily:  "Montserrat-ExtraBold"  
     },
+    date: {
+      paddingTop: 5, 
+      paddingBottom: 5
+  },
     message: {
-      fontSize: 20,
+      // fontSize: 20,
       fontFamily:  "Montserrat-Regular"  
   }
   })
