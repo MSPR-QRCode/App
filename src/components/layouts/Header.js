@@ -23,6 +23,7 @@ Header.propTypes = {
     title: PropTypes.string.isRequired
 }
 
+
 const styles = StyleSheet.create({
     header: {
         backgroundColor: red, 
