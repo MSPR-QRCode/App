@@ -16,7 +16,9 @@ const List = () => {
 
 const styles = StyleSheet.create({
     list: {
-      flex: 1
+      flex: 1,
+      paddingTop: 5,
+      marginBottom: 15
     }
   })
 
