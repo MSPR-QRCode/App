@@ -25,11 +25,12 @@ export class Scanner extends React.Component {
     if (QRcode.type === 'QR_CODE' && this.ifScan) {
       this.ifScan = false;
       try {
+        console.log(QRcode.data); 
         const code = JSON.parse(QRcode.data);
         if (code.idQrCode) {
-          const promo = await getQRCode(code.idQrCode);
+          if (!code.idQrCode.startsWith('MSPR_')) throw 'Not good idQrCode';
 
-          console.log(promo);
+          const promo = await getQRCode(code.idQrCode);
 
           Alert.alert(
             'Scanned Data',
@@ -38,21 +39,33 @@ export class Scanner extends React.Component {
               {
                 text: 'Okay',
                 onPress: () => {
-                  
+                  this.ifScan = true;
                 },
                 style: 'cancel',
               },
             ],
             {cancelable: false},
           );
-          
+        } else {
+          throw 'QRCode is not a JSON';
         }
-        this.ifScan = true;
       } catch (error) {
-        console.log('error', error);
-        this.ifScan = true;
+        console.log(error);
+        Alert.alert(
+          "QRCOde inconnu",
+          "Avez vous bien scanner un QRCode MSPR ?",
+          [
+            {
+              text: 'Ok',
+              onPress: () => {
+                this.ifScan = true;
+              },
+              style: 'cancel',
+            },
+          ],
+          {cancelable: false},
+        );
       }
-      
     }
   };
 
