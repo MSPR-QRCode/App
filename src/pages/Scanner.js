@@ -10,6 +10,9 @@ import MaskScanner from '../components/layouts/MaskScanner';
 //import service
 import {getQRCode} from '../services/qrcode';
 
+//import redux
+import {connect} from 'react-redux';
+
 export class Scanner extends React.Component {
   ifScan = true;
 
@@ -31,6 +34,9 @@ export class Scanner extends React.Component {
           if (!code.idQrCode.startsWith('MSPR_')) throw 'Not good idQrCode';
 
           const promo = await getQRCode(code.idQrCode);
+
+          const action = {type: "ADD_QR_CODE_SCANNED", value: promo.idQRCode}; 
+          this.props.dispatch(action);
 
           Alert.alert(
             'Scanned Data',
@@ -70,6 +76,7 @@ export class Scanner extends React.Component {
   };
 
   render() {
+    console.log(this.props.qrCodeScanned); 
     return (
       <DefaultLayout titleHeader={'Scanner'}>
         <RNCamera style={styles.camera} onBarCodeRead={this.scannerQRCode}>
@@ -88,4 +95,10 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Scanner;
+const mapStateToProps = (state) => {
+  return {
+    qrCodeScanned: state.qrCodeScanned
+  }
+}
+
+export default connect(mapStateToProps)(Scanner);
