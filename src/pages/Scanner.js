@@ -10,8 +10,9 @@ import MaskScanner from '../components/layouts/MaskScanner';
 //import service
 import {getQRCode} from '../services/qrcode';
 
-//import redux
+//import redux and actions
 import {connect} from 'react-redux';
+import {addQRCode} from '../store/actions/qrcode';
 
 export class Scanner extends React.Component {
   ifScan = true;
@@ -35,8 +36,8 @@ export class Scanner extends React.Component {
 
           const promo = await getQRCode(code.idQrCode);
 
-          const action = {type: "ADD_QR_CODE_SCANNED", value: promo.idQRCode}; 
-          this.props.dispatch(action);
+          this.props.addQRCode(promo.idQRCode); 
+          console.log(this.props.qrCodeScanned);
 
           Alert.alert(
             'Scanned Data',
@@ -100,5 +101,10 @@ const mapStateToProps = (state) => {
     qrCodeScanned: state.qrCodeScanned
   }
 }
+const mapDispatchToProps = (dispach) => {
+  return {
+    addQRCode : value => dispach(addQRCode(value))
+  }
+}
 
-export default connect(mapStateToProps)(Scanner);
+export default connect(mapStateToProps, mapDispatchToProps)(Scanner);

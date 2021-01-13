@@ -1,9 +1,12 @@
+//import action type
+import {ADD_QRCODE} from '../actionsType/qrcode';
+
 const initialState = {qrCodeScanned: []};
 
 const qrCodeReducers = (state = initialState, action) => {
   let nextState;
   switch (action.type) {
-    case 'ADD_QR_CODE_SCANNED':
+    case ADD_QRCODE:
       const qrCodeIndex = state.qrCodeScanned.findIndex(
         (item) => item === action.value,
       );
