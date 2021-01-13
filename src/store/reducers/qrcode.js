@@ -1,20 +1,20 @@
 //import action type
 import {ADD_QRCODE} from '../actionsType/qrcode';
 
-const initialState = {qrCodeScanned: []};
+const initialState = {QRCodeScanned: []};
 
-const qrCodeReducers = (state = initialState, action) => {
+const QRCodeReducers = (state = initialState, action) => {
   let nextState;
   switch (action.type) {
     case ADD_QRCODE:
-      const qrCodeIndex = state.qrCodeScanned.findIndex(
+      const QRCodeIndex = state.QRCodeScanned.findIndex(
         (item) => item === action.value,
       );
       //Si l'index n'est pas trouvé
-      if (qrCodeIndex === -1) {
+      if (QRCodeIndex === -1) {
         nextState = {
           ...state,
-          qrCodeScanned: [...state.qrCodeScanned, action.value],
+          QRCodeScanned: [...state.QRCodeScanned, action.value],
         };
       }
       return nextState || state;
@@ -23,4 +23,4 @@ const qrCodeReducers = (state = initialState, action) => {
   }
 };
 
-export default qrCodeReducers;
+export default QRCodeReducers;

@@ -1,5 +1,5 @@
 //import redux
 import { createStore } from 'redux';
-import qrCodeReducers from './reducers/qrcode'; 
+import QRCodeReducers from './reducers/qrcode'; 
 
-export default createStore(qrCodeReducers); 
+export default createStore(QRCodeReducers); 

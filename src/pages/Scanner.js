@@ -25,19 +25,19 @@ export class Scanner extends React.Component {
    * Scanner QR code
    * @param {*} QRcode
    */
-  scannerQRCode = async (QRcode) => {
-    if (QRcode.type === 'QR_CODE' && this.ifScan) {
+  scannerQRCode = async (QRCode) => {
+    if (QRCode.type === 'QR_CODE' && this.ifScan) {
       this.ifScan = false;
       try {
-        console.log(QRcode.data); 
-        const code = JSON.parse(QRcode.data);
-        if (code.idQrCode) {
-          if (!code.idQrCode.startsWith('MSPR_')) throw 'Not good idQrCode';
+        console.log(QRCode.data); 
+        const code = JSON.parse(QRCode.data);
+        if (code.idQRCode) {
+          if (!code.idQRCode.startsWith('MSPR_')) throw 'Not good idQRCode';
 
-          const promo = await getQRCode(code.idQrCode);
+          const promo = await getQRCode(code.idQRCode);
 
           this.props.addQRCode(promo.idQRCode); 
-          console.log(this.props.qrCodeScanned);
+          console.log(this.props.QRCodeScanned);
 
           Alert.alert(
             'Scanned Data',
@@ -54,7 +54,7 @@ export class Scanner extends React.Component {
             {cancelable: false},
           );
         } else {
-          throw 'QRCode is not a JSON';
+          throw 'QRCode is not a good JSON';
         }
       } catch (error) {
         console.log(error);
@@ -77,7 +77,7 @@ export class Scanner extends React.Component {
   };
 
   render() {
-    console.log(this.props.qrCodeScanned); 
+    console.log(this.props.QRCodeScanned); 
     return (
       <DefaultLayout titleHeader={'Scanner'}>
         <RNCamera style={styles.camera} onBarCodeRead={this.scannerQRCode}>
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state) => {
   return {
-    qrCodeScanned: state.qrCodeScanned
+    QRCodeScanned: state.QRCodeScanned
   }
 }
 const mapDispatchToProps = (dispach) => {
