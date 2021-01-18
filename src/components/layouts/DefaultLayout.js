@@ -15,11 +15,9 @@ import {red} from '../../styles/color';
 
 const DefaultLayout = ({children, titleHeader}) => {
 
-    const inset = useSafeAreaInsets();  
-
     return (
         <>
-        <StatusBar barStyle="light-content" backgroundColor={red} /> 
+        <StatusBar barStyle="light-content" backgroundColor={red}  translucent={true} /> 
         <View style={{...styles.main_comtainer,}}> 
             <Header title={titleHeader} /> 
             { children }

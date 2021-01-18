@@ -11,13 +11,18 @@ import {
 } from 'react-native';
 
 //import styles
-import {red} from '../styles/color';
+import {red, grey} from '../styles/color';
+
+//import Animation
+import SlideBottom from '../animations/SlideBottom'; 
+
 
 const {height, width} = Dimensions.get('screen');
 
 class DetailPromo extends React.Component {
   constructor(props) {
     super(props);
+    
   }
 
   render() {
@@ -30,7 +35,8 @@ class DetailPromo extends React.Component {
           backgroundColor="transparent"
           translucent={true}
         />
-        <View style={styles.container}>
+       <SlideBottom>
+        <View>
         
           <ScrollView style={styles.container}>
             <Image
@@ -53,6 +59,7 @@ class DetailPromo extends React.Component {
             </View>
           </ScrollView>
         </View>
+      </SlideBottom>
       </>
     );
   }
@@ -60,13 +67,14 @@ class DetailPromo extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    //flex: 1,
+    minHeight: height, 
     backgroundColor: 'white',
   },
   image_detail: {
     height: height / 3,
     marginBottom: -20,
-    backgroundColor: 'blue',
+    backgroundColor: 'grey',
     resizeMode: 'cover',
   },
   container_promo: {
