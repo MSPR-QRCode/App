@@ -22,9 +22,11 @@ const {height, width} = Dimensions.get('screen');
 class DetailPromo extends React.Component {
   constructor(props) {
     super(props);
+    
   }
 
   render() {
+    console.log(this.props.route.params);
     return (
       <>
         <StatusBar
@@ -33,7 +35,7 @@ class DetailPromo extends React.Component {
           translucent={true}
         />
        <SlideBottom>
-        <View style={styles.container}>
+        <View>
         
           <ScrollView style={styles.container}>
             <Image
@@ -79,7 +81,8 @@ class DetailPromo extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
+    //flex: 1,
+    minHeight: height, 
     backgroundColor: 'white',
   },
   image_detail: {
