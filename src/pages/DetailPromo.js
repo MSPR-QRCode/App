@@ -21,6 +21,8 @@ class DetailPromo extends React.Component {
   }
 
   render() {
+    const promo = this.props.route.params;
+    console.log(this.promo);
     return (
       <>
         <StatusBar
@@ -39,28 +41,13 @@ class DetailPromo extends React.Component {
               }}
             />
             <View style={styles.container_promo}>
-              <Text style={styles.title_code}>224GG</Text>
+              <Text style={styles.title_code}>{this.promo.title_code}</Text>
               <View style={styles.container_text}>
-                <Text style={styles.title}>Nom Promo</Text>
-                <Text style={styles.date}>Date : 21/09/2000</Text>
+                <Text style={styles.title}>{this.promo.title}</Text>
+                <Text style={styles.date}>{this.promo.date}</Text>
                 <Text style={styles.description}>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Mauris sed mauris suscipit, commodo ipsum a, lobortis felis.
-                  Sed elit velit, imperdiet at metus quis, suscipit lacinia
-                  enim. Aliquam in nunc a urna eleifend fringilla quis eu felis.
-                  Mauris sed lacus massa. Ut a ipsum at ligula scelerisque
-                  aliquam quis vel libero. Donec vel arcu vitae odio elementum
-                  fermentum eu a sem. Vestibulum elementum libero ac dui aliquam
-                  consectetur. Cras turpis velit, vulputate nec sapien sodales,
-                  lobortis congue lacus. Duis cursus faucibus urna, a dapibus
-                  ante elementum vel. Nulla tempus turpis sit amet odio
-                  imperdiet, et ullamcorper sem dignissim. Nullam tincidunt
-                  gravida leo, feugiat malesuada eros ultrices in. Praesent odio
-                  magna, porta gravida fermentum eu, tincidunt sit amet sem.
-                  Suspendisse potenti. Curabitur tempor quam ut massa tempus,
-                  nec fermentum diam mattis. In magna tortor, consectetur
-                  fermentum nisl nec, gravida fermentum purus. Mauris placerat
-                  sem magna, et bibendum dui pharetra eget.
+                {this.promo.description}
+            
                 </Text>
               </View>
             </View>
