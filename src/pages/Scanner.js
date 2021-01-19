@@ -79,7 +79,7 @@ export class Scanner extends React.Component {
   };
 
   render() {
-    console.log(this.props.QRCodeScanned);
+    console.log('QRCODESCANNED',this.props.QRCodeScanned);
     return (
       <DefaultLayout titleHeader={'Scanner'}>
         <RNCamera testID="camera" style={styles.camera} onBarCodeRead={this.scannerQRCode}>
@@ -100,8 +100,9 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = (state) => {
+  console.log('state', state); 
   return {
-    QRCodeScanned: state.QRCodeScanned,
+    QRCodeScanned: state.QRCodeReducers.QRCodeScanned,
   };
 };
 const mapDispatchToProps = (dispach) => {
