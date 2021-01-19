@@ -34,7 +34,6 @@ export class Scanner extends React.Component {
     if (QRCode.type === 'QR_CODE' && this.ifScan) {
       this.ifScan = false;
       try {
-        console.log(QRCode.data);
         const code = JSON.parse(QRCode.data);
         if (code.idQRCode) {
           if (!code.idQRCode.startsWith('MSPR_')) throw 'Not good idQRCode';
@@ -49,10 +48,10 @@ export class Scanner extends React.Component {
           throw 'QRCode is not a good JSON';
         }
       } catch (error) {
-        console.log(error);
+        console.log("error scan",error);
         this.changeLoading(false);
         Alert.alert(
-          'QRCOde inconnu',
+          'QRCode inconnu',
           'Avez vous bien scanner un QRCode MSPR ?',
           [
             {
@@ -83,7 +82,7 @@ export class Scanner extends React.Component {
     console.log(this.props.QRCodeScanned);
     return (
       <DefaultLayout titleHeader={'Scanner'}>
-        <RNCamera style={styles.camera} onBarCodeRead={this.scannerQRCode}>
+        <RNCamera testID="camera" style={styles.camera} onBarCodeRead={this.scannerQRCode}>
           {this._displayLoading()}
           <MaskScanner />
         </RNCamera>

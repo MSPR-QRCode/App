@@ -6,7 +6,7 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
-    "test": "jest",
+    "test": "jest --env=node",
     "lint": "eslint ."
   },
   "dependencies": {
@@ -32,6 +32,8 @@
     "@babel/core": "^7.8.4",
     "@babel/runtime": "^7.8.4",
     "@react-native-community/eslint-config": "^1.1.0",
+    "@testing-library/jest-native": "^3.4.3",
+    "@testing-library/react-native": "^7.1.0",
     "babel-jest": "^25.1.0",
     "chai": "^4.2.0",
     "chai-jest-diff": "^1.0.2",
@@ -50,7 +52,8 @@
   "jest": {
     "preset": "react-native",
     "setupFilesAfterEnv": [
-      "jest-enzyme"
+      "jest-enzyme",
+      "@testing-library/jest-native/extend-expect"
     ],
     "testEnvironment": "enzyme",
     "testEnvironmentOptions": {

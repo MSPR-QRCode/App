@@ -1,47 +1,61 @@
-//import test
+//import React
 import React from 'react';
-import { shallow, mount } from 'enzyme';
-import { expect } from 'chai'
-import toJson from 'enzyme-to-json';
-import configureStore from 'redux-mock-store';
+import {Alert} from 'react-native';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
+
+//import test
+import {render, waitFor, act} from '@testing-library/react-native';
+import {expect} from 'chai';
+
+//import reddux
+import {Provider} from 'react-redux';
+import Store from '../src/store';
 
 //Page
-import Scanner from '../src/pages/Scanner';
+//Import Navigation
+import Navigation from '../src/navigations';
 
-const mockStore = configureStore();
-const initialState = {QRCodeScanned: []};
-const store = mockStore(initialState); 
+jest.spyOn(Alert, 'alert');
 
-
-
+const component = (
+  <Provider store={Store}>
+    <SafeAreaProvider
+      initialMetrics={{
+        frame: {x: 0, y: 0, width: 0, height: 0},
+        insets: {top: 0, left: 0, right: 0, bottom: 0},
+      }}>
+      <Navigation />
+    </SafeAreaProvider>
+  </Provider>
+);
 
 describe('Scanner', () => {
-  it('scan fail no JSON', async () => {
-    
-    const mock = jest.fn();
-    jest.mock('react-native-camera', () => 'Camera');
-    
+  it('test scan', async () => {
     const fakeQRCode = {
-      type: "QR_CODE", 
-      data: "IDQRCODE"
-    }
+      type: 'QR_CODE',
+      data: '{"idQRCode": "MSPR_XLAVFqitdN"}',
+    };
 
-    const wrapper = shallow(<Scanner store={store} />); 
+    const {getByTestId} = render(component);
+    await getByTestId(
+      'defaultLayout',
+    ).children[1].props.onBarCodeRead(fakeQRCode);
+    await waitFor(() => getByTestId('detailPromo'));
+  });
+  it('error scan', async () => {
+    const fakeQRCode = {
+      type: 'QR_CODE',
+      data: '{"idQRCode": "XLAVFqitdN"}',
+    };
 
-    const component = wrapper.dive(); 
-    component.instance().scannerQRCode(); 
+    const {getByTestId} = render(component);
+    const test = await act(async () => {
+      await getByTestId(
+        'defaultLayout',
+      ).children[1].props.onBarCodeRead(fakeQRCode);
+    });
 
-    console.log(toJson(wrapper.dive())); 
-    // const instance = wrapper.instance();
-    // instance.scannerQRCode(fakeQRCode); 
-
-    console.log(toJson(wrapper).children);
-
-
-    
-
-  }); 
-
-
-
+    const alert = Alert.alert.mock.calls[0][0];
+    expect(alert).to.equals('QRCode inconnu');
+  });
 });
