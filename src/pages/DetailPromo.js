@@ -20,11 +20,15 @@ import SlideBottom from '../animations/SlideBottom';
 const {height, width} = Dimensions.get('screen');
 
 class DetailPromo extends React.Component {
+
+  promo = {};
+
+
   constructor(props) {
     super(props);
-    const promo = props.route;
+    this.promo = props.route.params;
     //la console me renvoie bien le json avec toutes les infos dont j'ai besoin
-    console.log(promo);
+    console.log(this.promo); 
 
   }
 
@@ -33,7 +37,11 @@ class DetailPromo extends React.Component {
     //j'ai essayé de faire une function que j'appelle dans le constructor 
     //où je retourne props en instanciant une var  ça n'a pas marché 
     //la fonction onInit peut fonctionner ici ?
-     console.log(promo);
+    const promo = this.props.route.params; 
+     console.log(this.props.route.params);
+
+
+
     return (
       <>
         <StatusBar
@@ -53,7 +61,7 @@ class DetailPromo extends React.Component {
               }}
             />
             <View style={styles.container_promo}>
-              <Text style={styles.title_code}>test</Text>
+              <Text style={styles.title_code}> {promo.name} </Text>
               <View style={styles.container_text}>
                 <Text style={styles.title}>testname</Text>
                 <Text style={styles.date}>testdateCrea</Text>
