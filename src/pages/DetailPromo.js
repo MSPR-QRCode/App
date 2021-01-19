@@ -22,12 +22,18 @@ const {height, width} = Dimensions.get('screen');
 class DetailPromo extends React.Component {
   constructor(props) {
     super(props);
-    
+    const promo = props.route;
+    //la console me renvoie bien le json avec toutes les infos dont j'ai besoin
+    console.log(promo);
+
   }
 
   render() {
-    const promo = this.props.route.params;
-    console.log(this.promo);
+    //par contre la console ci dessous me renvoie un tableau vide ce qui est normal
+    //j'ai essayé de faire une function que j'appelle dans le constructor 
+    //où je retourne props en instanciant une var  ça n'a pas marché 
+    //la fonction onInit peut fonctionner ici ?
+     console.log(promo);
     return (
       <>
         <StatusBar
@@ -47,12 +53,12 @@ class DetailPromo extends React.Component {
               }}
             />
             <View style={styles.container_promo}>
-              <Text style={styles.title_code}>{this.promo.title_code}</Text>
+              <Text style={styles.title_code}>test</Text>
               <View style={styles.container_text}>
-                <Text style={styles.title}>{this.promo.title}</Text>
-                <Text style={styles.date}>{this.promo.date}</Text>
+                <Text style={styles.title}>testname</Text>
+                <Text style={styles.date}>testdateCrea</Text>
                 <Text style={styles.description}>
-                {this.promo.description}
+                testdescription
             
                 </Text>
               </View>
