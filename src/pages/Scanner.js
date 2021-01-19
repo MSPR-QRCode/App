@@ -39,16 +39,15 @@ export class Scanner extends React.Component {
           if (!code.idQRCode.startsWith('MSPR_')) throw 'Not good idQRCode';
           this.changeLoading(true);
           const promo = await getQRCode(code.idQRCode);
-          this.changeLoading(false);
-          this.ifScan = true;
           this.props.addQRCode(promo.idQRCode);
-          this.props.navigation.navigate('Detail', promo); 
-
+          this.props.navigation.navigate('Detail', promo);
+          this.changeLoading(false);
+          this.setScanTrue();
         } else {
           throw 'QRCode is not a good JSON';
         }
       } catch (error) {
-        console.log("error scan",error);
+        console.log('error scan', error);
         this.changeLoading(false);
         Alert.alert(
           'QRCode inconnu',
@@ -57,7 +56,7 @@ export class Scanner extends React.Component {
             {
               text: 'Ok',
               onPress: () => {
-                this.ifScan = true;
+                this.setScanTrue();
               },
               style: 'cancel',
             },
@@ -68,10 +67,26 @@ export class Scanner extends React.Component {
     }
   };
 
+  /**
+   * Set ifScan = true after 1250ms
+   */
+  setScanTrue = () => {
+    setTimeout(() => {
+      this.ifScan = true;
+    }, 1250);
+  };
+
+  /**
+   * change loading
+   * @param {boolean} loading 
+   */
   changeLoading = (loading) => {
     this.setState({loading: loading});
   };
-
+  
+  /**
+   * display component loading
+   */
   _displayLoading = () => {
     if (this.state.loading) {
       return <Loading msg={'Veuillez patientez nous scannons votre QRCode'} />;
@@ -79,10 +94,13 @@ export class Scanner extends React.Component {
   };
 
   render() {
-    console.log('QRCODESCANNED',this.props.QRCodeScanned);
+    console.log('QRCODESCANNED', this.props.QRCodeScanned);
     return (
       <DefaultLayout titleHeader={'Scanner'}>
-        <RNCamera testID="camera" style={styles.camera} onBarCodeRead={this.scannerQRCode}>
+        <RNCamera
+          testID="camera"
+          style={styles.camera}
+          onBarCodeRead={this.scannerQRCode}>
           {this._displayLoading()}
           <MaskScanner />
         </RNCamera>
@@ -100,7 +118,6 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = (state) => {
-  console.log('state', state); 
   return {
     QRCodeScanned: state.QRCodeReducers.QRCodeScanned,
   };
