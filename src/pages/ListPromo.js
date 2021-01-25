@@ -66,7 +66,9 @@ class ListPromo extends React.Component {
           <List
             promos={this.state.promos}
             loading={this.state.isLoading}
-            loadPromos={this.loadPromos}></List>
+            loadPromos={this.loadPromos}
+            navigate={this.props.navigation.navigate}
+            ></List>
         </View>
       </DefaultLayout>
     );

@@ -5,7 +5,7 @@ import { fakePromo } from '../../services/FakePromo';
 import ItemPromo from './ItemPromo';
 import LoadingList from './LoadingList';
   
-const List = ({promos, loading, loadPromos}) => {
+const List = ({promos, loading, loadPromos, navigate}) => {
  
 
     return(
@@ -13,7 +13,7 @@ const List = ({promos, loading, loadPromos}) => {
         <FlatList  style={styles.list}
         data={promos}
         keyExtractor={(item, index) => index.toString() }
-        renderItem={({item}) => (  <ItemPromo item={item} />)}
+        renderItem={({item}) => (  <ItemPromo item={item} navigate={navigate} />)}
         onEndReachedThreshold={0.5}
         onEndReached={() => {
           loadPromos()

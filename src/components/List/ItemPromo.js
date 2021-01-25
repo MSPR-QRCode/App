@@ -5,9 +5,15 @@ import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 //import service
 import { formatDate } from '../../services/date';
 
-const ItemPromo = ({item}) => {
+const ItemPromo = ({item, navigate}) => {
+
+  const displayDetailPromo = () => {
+      navigate("Detail", item); 
+  }
+
+
    return (
-    <TouchableOpacity style={styles.item}>
+    <TouchableOpacity style={styles.item} onPress={() => displayDetailPromo()}>
     <Text  numberOfLines={1} style={styles.title}>{item.name}</Text>
     <Text style={styles.date}>Date limite : { formatDate(item.dateExp) }</Text>
     <Text numberOfLines={2} style={styles.message}>{item.description}</Text>
