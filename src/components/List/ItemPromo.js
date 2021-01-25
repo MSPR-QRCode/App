@@ -1,12 +1,16 @@
+//import React
 import React from 'react';
-import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity} from 'react-native';
+
+//import service
+import { formatDate } from '../../services/date';
 
 const ItemPromo = ({item}) => {
    return (
     <TouchableOpacity style={styles.item}>
-    <Text style={styles.title}>{item.name}</Text>
-    <Text style={styles.date}>Date limite : {item.date}</Text>
-    <Text style={styles.message}>{item.message}</Text>
+    <Text  numberOfLines={1} style={styles.title}>{item.name}</Text>
+    <Text style={styles.date}>Date limite : { formatDate(item.dateExp) }</Text>
+    <Text numberOfLines={2} style={styles.message}>{item.description}</Text>
   </TouchableOpacity>
    ); 
 }
