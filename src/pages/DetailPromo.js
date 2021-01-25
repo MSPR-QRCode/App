@@ -50,7 +50,7 @@ class DetailPromo extends React.Component {
           translucent={true}
         />
        <SlideBottom>
-        <View>
+        <View testID="detailPromo">
         
           <ScrollView style={styles.container}>
             <Image

@@ -3,14 +3,26 @@ import React from 'react';
 import {View, StyleSheet, Text, FlatList} from 'react-native';
 import { fakePromo } from '../../services/FakePromo';
 import ItemPromo from './ItemPromo';
+import LoadingList from './LoadingList';
   
-const List = () => {
+const List = ({promos, loading, loadPromos}) => {
+ 
+
     return(
+      <>
         <FlatList  style={styles.list}
-        data={fakePromo}
-        keyExtractor={item => item.id.toString()}
+        data={promos}
+        keyExtractor={(item, index) => index.toString() }
         renderItem={({item}) => (  <ItemPromo item={item} />)}
+        onEndReachedThreshold={0.5}
+        onEndReached={() => {
+          loadPromos()
+        }}
+        ListFooterComponent={<LoadingList display={loading} /> }
+
       />
+      
+    </>
     );
 }
 
@@ -18,7 +30,6 @@ const styles = StyleSheet.create({
     list: {
       flex: 1,
       paddingTop: 5,
-      marginBottom: 15
     }
   })
 

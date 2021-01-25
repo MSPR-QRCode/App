@@ -1,5 +1,4 @@
 //Import React
-import 'react-native-gesture-handler';
 import React from 'react';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 
@@ -8,15 +7,21 @@ import Navigation from './navigations';
 
 //import redux
 import {Provider} from 'react-redux';
-import Store from './store';
+import {store, persistor } from './store';
+import Store from './store'; 
+import { PersistGate } from 'redux-persist/integration/react'
 
 const App = () => {
+
+
   return (
     <>
-      <Provider store={Store}>
+      <Provider store={store}>
+      <PersistGate  loading={null} persistor={persistor}>
         <SafeAreaProvider>
           <Navigation />
         </SafeAreaProvider>
+      </PersistGate>
       </Provider>
     </>
   );
