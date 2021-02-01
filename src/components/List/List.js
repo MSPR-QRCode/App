@@ -15,8 +15,8 @@ const List = ({promos, loading, loadPromos, navigate}) => {
         keyExtractor={(item, index) => index.toString() }
         renderItem={({item}) => (  <ItemPromo item={item} navigate={navigate} />)}
         onEndReachedThreshold={0.5}
-        onEndReached={() => {
-          loadPromos()
+        onEndReached={async () => {
+          await loadPromos()
         }}
         ListFooterComponent={<LoadingList display={loading} /> }
 

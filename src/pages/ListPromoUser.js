@@ -4,30 +4,65 @@ import {View, Text, Button, StyleSheet} from 'react-native';
 
 //import components
 import DefaultLayout from '../components/layouts/DefaultLayout';
+import List from '../components/List/List';
 
 //import Style
 import stylePage from '../styles/stylePage';
 
+//import redux and actions
+import {connect} from 'react-redux';
+
+//import service
+import {getMyQRCodes} from '../services/qrcode';
+
 class ListPromoUser extends React.Component {
-  navigateDetail() {
-    this.props.navigation.navigate('Detail', {
-      idQRCode: 'MSPR_qHGEAXjfDA',
-      name: 'test',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed elementum ligula ut consequat placerat. Cras tincidunt ex ac erat commodo scelerisque ac ac dolor. Ut tincidunt orci ut nunc volutpat malesuada. Donec id sapien porta, fringilla diam massa nunc.',
-      image: 'https://api-mspr.thejulienm.fr/image/skate.jpg',
-      dateCrea: 1607620268,
-      dateExp: 1610212268,
-      codePromo: 'TEST20202021',
-    });
+
+  firstId = 0;
+  
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      promosUser: [],
+      isLoading: false,
+    };
   }
 
+  async componentDidMount() {
+    await this.loadQRCodes();
+  }
+
+  loadQRCodes = async () => {
+    const QRCodeScanned = this.props.QRCodeScanned;
+    QRCodeScanned.reverse();
+
+    try {
+      if (!this.state.isLoading) {
+        this.setState({isLoading: true});
+        const data = await getMyQRCodes(QRCodeScanned);
+
+        this.setState({
+          promosUser: [...this.state.promosUser, ...data.MyQrCodes],
+          isLoading: false,
+        });
+      }
+
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+      this.setState({isLoading: false});
+    }
+  };
+
   render() {
-    const navigation = this.props.navigation;
     return (
       <DefaultLayout titleHeader={'Mes codes'}>
         <View style={{...stylePage.container_page, ...styles.container}}>
-          <Button title="Go to Profile" onPress={() => this.navigateDetail()} />
+          <List
+            promos={this.state.promosUser}
+            loading={this.state.isLoading}
+            loadPromos={this.loadQRCodes}
+            navigate={this.props.navigation.navigate}></List>
         </View>
       </DefaultLayout>
     );
@@ -37,10 +72,20 @@ class ListPromoUser extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: -20,
-    alignItems: 'center',
-    justifyContent: 'center',
+    // marginTop: -20,
+    // alignItems: 'center',
+    // justifyContent: 'center',
   },
 });
 
-export default ListPromoUser;
+const mapStateToProps = (state) => {
+  return {
+    QRCodeScanned: state.QRCodeReducers.QRCodeScanned,
+  };
+};
+
+const mapDispatchToProps = (dispach) => {
+  return {};
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ListPromoUser);
