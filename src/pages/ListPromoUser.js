@@ -29,13 +29,13 @@ class ListPromoUser extends React.Component {
   }
 
   async componentDidMount() {
-      this.props.navigation.addListener('focus', async () => {
+      this.props.navigation.addListener('focus', async() => {
         await this.loadQRCodes();
       });
   }
 
   loadQRCodes = async () => {
-    const QRCodeScanned = this.props.QRCodeScanned;
+    const QRCodeScanned = [...this.props.QRCodeScanned]; 
     QRCodeScanned.reverse();
 
     try {
@@ -43,7 +43,7 @@ class ListPromoUser extends React.Component {
         this.setState({isLoading: true});
         const data = await getMyQRCodes(QRCodeScanned);
         this.setState({
-          promosUser: [...data.MyQrCodes],
+          promosUser: data.MyQrCodes,
           isLoading: false,
         });
 

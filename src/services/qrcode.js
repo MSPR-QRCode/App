@@ -34,7 +34,6 @@ export const getPromos = async (firstId) => {
  * @returns {*} data
  */
 export const getMyQRCodes = async (MyIdQRCodes) => {
-  console.log(MyIdQRCodes);
   const response = await API.post('/mes-qrcodes', {
     MyIdQRCodes,
   });

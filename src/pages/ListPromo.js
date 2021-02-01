@@ -1,6 +1,6 @@
 //Import React
 import React from 'react';
-import {View, Text, StyleSheet, Alert} from 'react-native';
+import {View, StyleSheet, Alert} from 'react-native';
 
 //import components
 import DefaultLayout from '../components/layouts/DefaultLayout';
@@ -21,13 +21,12 @@ class ListPromo extends React.Component {
     this.state = {
       promos: [],
       isLoading: false,
+      refreshing: false,
     };
   }
 
   async componentDidMount() {
-    this.props.navigation.addListener('focus', async () => {
-      await this.loadPromos();
-    });
+    await this.loadPromos();
   }
 
   loadPromos = async () => {
