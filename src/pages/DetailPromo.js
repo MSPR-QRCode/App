@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 
 //import styles
-import {red, grey} from '../styles/color';
+import {red} from '../styles/color';
 
 //import Animation
 import SlideBottom from '../animations/SlideBottom';
@@ -26,9 +26,6 @@ class DetailPromo extends React.Component {
 
   constructor(props) {
     super(props);
-    this.promo = props.route.params;
-    //la console me renvoie bien le json avec toutes les infos dont j'ai besoin
-    console.log(this.promo);
   }
 
   displayCodePromo(promo) {
@@ -38,12 +35,7 @@ class DetailPromo extends React.Component {
   }
 
   render() {
-    //par contre la console ci dessous me renvoie un tableau vide ce qui est normal
-    //j'ai essayé de faire une function que j'appelle dans le constructor
-    //où je retourne props en instanciant une var  ça n'a pas marché
-    //la fonction onInit peut fonctionner ici ?
     const promo = this.props.route.params;
-    console.log(this.props.route.params);
 
     return (
       <>

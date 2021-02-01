@@ -2,6 +2,9 @@
 import React from 'react';
 import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 
+//import styles
+import {red} from '../../styles/color';
+
 //import service
 import { formatDate } from '../../services/date';
 
@@ -11,10 +14,16 @@ const ItemPromo = ({item, navigate}) => {
       navigate("Detail", item); 
   }
 
+  const displayIdQRCode = (item) => {
+    if(item.codePromo) 
+      return <Text  numberOfLines={1} style={styles.idQRCode}>{item.codePromo}</Text>
+  }
+
 
    return (
     <TouchableOpacity style={styles.item} onPress={() => displayDetailPromo()}>
     <Text  numberOfLines={1} style={styles.title}>{item.name}</Text>
+    {displayIdQRCode(item)}
     <Text style={styles.date}>Date limite : { formatDate(item.dateExp) }</Text>
     <Text numberOfLines={2} style={styles.message}>{item.description}</Text>
   </TouchableOpacity>
@@ -39,12 +48,15 @@ const styles = StyleSheet.create({
       fontFamily:  "Montserrat-Medium",
 
     },  
-    //
-    
     title: {
         fontSize: 24,
         fontFamily:  "Montserrat-ExtraBold"  
     },
+    idQRCode: {
+      color: red, 
+      fontFamily:  "Montserrat-ExtraBold"  
+
+    }, 
     date: {
       paddingTop: 5, 
       paddingBottom: 5

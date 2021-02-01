@@ -6,7 +6,6 @@ import ItemPromo from './ItemPromo';
 import LoadingList from './LoadingList';
   
 const List = ({promos, loading, loadPromos, navigate}) => {
- 
 
     return(
       <>
@@ -16,7 +15,7 @@ const List = ({promos, loading, loadPromos, navigate}) => {
         renderItem={({item}) => (  <ItemPromo item={item} navigate={navigate} />)}
         onEndReachedThreshold={0.5}
         onEndReached={async () => {
-          await loadPromos()
+          if(loadPromos) await loadPromos()
         }}
         ListFooterComponent={<LoadingList display={loading} /> }
 

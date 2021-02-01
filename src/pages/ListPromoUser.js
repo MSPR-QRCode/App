@@ -1,6 +1,6 @@
 //import React
 import React from 'react';
-import {View, Text, Button, StyleSheet} from 'react-native';
+import {View, Text, Button, StyleSheet, Alert} from 'react-native';
 
 //import components
 import DefaultLayout from '../components/layouts/DefaultLayout';
@@ -11,14 +11,14 @@ import stylePage from '../styles/stylePage';
 
 //import redux and actions
 import {connect} from 'react-redux';
+import { removeQRCode } from '../store/actions/qrcode';
 
 //import service
 import {getMyQRCodes} from '../services/qrcode';
 
 class ListPromoUser extends React.Component {
-
   firstId = 0;
-  
+
   constructor(props) {
     super(props);
 
@@ -40,16 +40,32 @@ class ListPromoUser extends React.Component {
       if (!this.state.isLoading) {
         this.setState({isLoading: true});
         const data = await getMyQRCodes(QRCodeScanned);
-
         this.setState({
-          promosUser: [...this.state.promosUser, ...data.MyQrCodes],
+          promosUser: [...data.MyQrCodes],
           isLoading: false,
         });
-      }
 
-      console.log(data);
+        if(data.Unknown_idQrCode.length > 0) {
+          this.props.removeQRCode(data.Unknown_idQrCode);
+        }
+
+      }
     } catch (error) {
-      console.log(error);
+      console.log(error); 
+      Alert.alert(
+        'Problème de chargement',
+        'Il y a eu un problème de chargement de la liste',
+        [
+          {
+            text: 'Ok',
+            onPress: () => {
+              this.setState({isLoading: false});
+            },
+            style: 'cancel',
+          },
+        ],
+        {cancelable: false},
+      );
       this.setState({isLoading: false});
     }
   };
@@ -61,7 +77,6 @@ class ListPromoUser extends React.Component {
           <List
             promos={this.state.promosUser}
             loading={this.state.isLoading}
-            loadPromos={this.loadQRCodes}
             navigate={this.props.navigation.navigate}></List>
         </View>
       </DefaultLayout>
@@ -85,7 +100,9 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispach) => {
-  return {};
+  return {
+    removeQRCode : (value) => dispach(removeQRCode(value))
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ListPromoUser);
