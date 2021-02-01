@@ -24,8 +24,8 @@ class ListPromo extends React.Component {
     };
   }
 
-  componentDidMount() {
-    this.loadPromos();
+  async componentDidMount() {
+    await this.loadPromos();
   }
 
   loadPromos = async () => {

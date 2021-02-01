@@ -21,8 +21,22 @@ export const getQRCode = async (idCode) => {
  */
 export const getPromos = async (firstId) => {
   const response = await API.post('/les-promotions', {
-    numberOfQrCode, 
-    firstId
+    numberOfQrCode,
+    firstId,
+  });
+
+  return response.data;
+};
+
+/**
+ *
+ * @param {number} myQRCodes
+ * @returns {*} data
+ */
+export const getMyQRCodes = async (MyIdQRCodes) => {
+  console.log(MyIdQRCodes);
+  const response = await API.post('/mes-qrcodes', {
+    MyIdQRCodes,
   });
 
   return response.data;
