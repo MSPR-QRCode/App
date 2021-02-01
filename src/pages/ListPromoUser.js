@@ -15,7 +15,7 @@ class ListPromoUser extends React.Component {
       name: 'test',
       description:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed elementum ligula ut consequat placerat. Cras tincidunt ex ac erat commodo scelerisque ac ac dolor. Ut tincidunt orci ut nunc volutpat malesuada. Donec id sapien porta, fringilla diam massa nunc.',
-      image: 'image',
+      image: 'https://api-mspr.thejulienm.fr/image/skate.jpg',
       dateCrea: 1607620268,
       dateExp: 1610212268,
       codePromo: 'TEST20202021',
