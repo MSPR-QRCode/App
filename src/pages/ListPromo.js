@@ -25,7 +25,9 @@ class ListPromo extends React.Component {
   }
 
   async componentDidMount() {
-    await this.loadPromos();
+    this.props.navigation.addListener('focus', async () => {
+      await this.loadPromos();
+    });
   }
 
   loadPromos = async () => {
@@ -67,8 +69,7 @@ class ListPromo extends React.Component {
             promos={this.state.promos}
             loading={this.state.isLoading}
             loadPromos={this.loadPromos}
-            navigate={this.props.navigation.navigate}
-            ></List>
+            navigate={this.props.navigation.navigate}></List>
         </View>
       </DefaultLayout>
     );
@@ -78,8 +79,6 @@ class ListPromo extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // alignItems: 'center',
-    // justifyContent: 'center',
   },
 });
 

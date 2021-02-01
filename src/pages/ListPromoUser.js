@@ -29,7 +29,9 @@ class ListPromoUser extends React.Component {
   }
 
   async componentDidMount() {
-    await this.loadQRCodes();
+      this.props.navigation.addListener('focus', async () => {
+        await this.loadQRCodes();
+      });
   }
 
   loadQRCodes = async () => {
