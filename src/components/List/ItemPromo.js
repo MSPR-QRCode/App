@@ -19,7 +19,6 @@ const ItemPromo = ({item, navigate}) => {
       return <Text  numberOfLines={1} style={styles.idQRCode}>{item.codePromo}</Text>
   }
 
-
    return (
     <TouchableOpacity style={styles.item} onPress={() => displayDetailPromo()}>
     <Text  numberOfLines={1} style={styles.title}>{item.name}</Text>
