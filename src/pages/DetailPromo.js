@@ -21,6 +21,7 @@ import {formatDate} from '../services/date';
 
 const {height, width} = Dimensions.get('screen');
 
+
 class DetailPromo extends React.Component {
   promo = {};
 

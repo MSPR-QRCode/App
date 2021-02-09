@@ -4,7 +4,7 @@ import API from './api';
 const numberOfQrCode = 10;
 
 /**
- *
+ * Get one Promo for API
  * @param {*} idCode
  * @return {*} data
  */
@@ -14,7 +14,7 @@ export const getQRCode = async (idCode) => {
 };
 
 /**
- *
+ * Get Promo for API (pagination infinite scroll)
  * @param {number} numberOfQrCode
  * @param {number} firstId
  * @returns {*} data
@@ -31,7 +31,7 @@ export const getPromos = async (firstId, search, MyIdQRCodes) => {
 };
 
 /**
- *
+ * Get QRCode's users for API
  * @param {number} myQRCodes
  * @returns {*} data
  */
