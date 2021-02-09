@@ -36,6 +36,7 @@ class ListPromo extends React.Component {
   async componentDidMount() {
     this.props.navigation.addListener('focus', async () => {
       this.search = "";
+      
       await this.resetListPromo();
     });
   }
@@ -88,7 +89,7 @@ class ListPromo extends React.Component {
   }
 
   async searchPromo(searchText) {
-    this.searchText = searchText; 
+    this.search = searchText; 
     await this.resetListPromo();
   }
 
@@ -98,7 +99,7 @@ class ListPromo extends React.Component {
         <View style={{...styles.container, ...stylePage.container_page}}>
           <View style={styles.containerSearchBar}>
             <Icon name="search" style={styles.iconSearch} size={25} />
-            <TextInput style={styles.searchBar} />
+            <TextInput style={styles.searchBar} value={this.search}  onChangeText={value => this.searchPromo(value)} />
           </View>
           <List
             promos={this.state.promos}
