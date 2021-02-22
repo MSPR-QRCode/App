@@ -4,7 +4,8 @@ import {View, StyleSheet, Text, FlatList} from 'react-native';
 import { fakePromo } from '../../services/FakePromo';
 import ItemPromo from './ItemPromo';
 import LoadingList from './LoadingList';
-  
+
+
 const List = ({promos, loading, loadPromos, navigate}) => {
 
     return(

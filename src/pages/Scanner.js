@@ -15,6 +15,10 @@ import {getQRCode} from '../services/qrcode';
 import {connect} from 'react-redux';
 import {addQRCode} from '../store/actions/qrcode';
 
+/**
+ * COMPONENT
+ * @category Pages
+ */
 export class Scanner extends React.Component {
   ifScan = true;
 
@@ -22,6 +26,10 @@ export class Scanner extends React.Component {
     loading: false,
   };
 
+  /**
+   * 
+   * @param {*} props 
+   */
   constructor(props) {
     super(props);
   }

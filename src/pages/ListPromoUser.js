@@ -16,9 +16,17 @@ import { removeQRCode } from '../store/actions/qrcode';
 //import service
 import {getMyQRCodes} from '../services/qrcode';
 
+/**
+ * COMPONENT
+ * @category Pages
+ */
 class ListPromoUser extends React.Component {
   firstId = 0;
 
+  /**
+   * set State (promosUser and isLoading)
+   * @param {*} props 
+   */
   constructor(props) {
     super(props);
 
@@ -28,12 +36,20 @@ class ListPromoUser extends React.Component {
     };
   }
 
+   /**
+   * LifeCycle : react 
+   * If the page is focus : reset List
+   */
   async componentDidMount() {
       this.props.navigation.addListener('focus', async() => {
         await this.loadQRCodes();
       });
   }
 
+  /**
+   * load qrCode scanned. 
+   * Is called again when the user is at the end of the FlatList.
+   */
   loadQRCodes = async () => {
     const QRCodeScanned = [...this.props.QRCodeScanned]; 
     QRCodeScanned.reverse();
@@ -72,6 +88,9 @@ class ListPromoUser extends React.Component {
     }
   };
 
+  /**
+   * 
+   */
   render() {
     return (
       <DefaultLayout titleHeader={'Mes codes'}>

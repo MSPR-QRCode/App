@@ -11,6 +11,11 @@ import {store, persistor } from './store';
 import Store from './store'; 
 import { PersistGate } from 'redux-persist/integration/react'
 
+
+/**
+ * COMPONENT
+ * App component : Enter point
+ */
 const App = () => {
 
 
