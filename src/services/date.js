@@ -2,7 +2,8 @@ import dayjs from 'dayjs';
 
 /**
  * Format date : DD/MM/YYYY
- * @categorie service
+ * @category service
+ * @subcategory dates
  * @method
  * @param {*} date 
  * @return dayjs

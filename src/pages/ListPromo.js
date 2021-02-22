@@ -18,12 +18,20 @@ import {getPromos} from '../services/qrcode';
 //import redux
 import {connect} from 'react-redux';
 
+/**
+ * COMPONENT
+ *  @category Pages
+ */
 class ListPromo extends React.Component {
   
   firstId = 0;
   nbOfQrCode = 1;
   search = ""; 
 
+  /**
+   * Set state {promo, isLoading, refreshing}
+   * @param {*} props 
+   */
   constructor(props) {
     super(props);
     this.state = {
@@ -33,6 +41,10 @@ class ListPromo extends React.Component {
     };
   }
 
+  /**
+   * LifeCycle : react 
+   * If the page is focus : reset List
+   */
   async componentDidMount() {
     this.props.navigation.addListener('focus', async () => {
       this.search = "";
@@ -41,6 +53,11 @@ class ListPromo extends React.Component {
     });
   }
 
+  /**
+   * Load promotions if loading = true. 
+   * call getPromos (services). 
+   * Is called again when the user is at the end of the FlatList.
+   */
   loadPromos = async () => {
     try {
       if (!this.state.isLoading && this.firstId < this.nbOfQrCode) {
@@ -75,6 +92,9 @@ class ListPromo extends React.Component {
     }
   };
 
+  /**
+   * Reset promo (state, firstId, nbOfQrCode)
+   */
   async resetListPromo() {
     this.firstId = 0;
       this.nbOfQrCode = 1;
@@ -88,11 +108,18 @@ class ListPromo extends React.Component {
       );
   }
 
+  /**
+   * Set search according to the user's input and resetListPromo
+   * @param {string} searchText 
+   */
   async searchPromo(searchText) {
     this.search = searchText; 
     await this.resetListPromo();
   }
 
+  /**
+   * 
+   */
   render() {
     return (
       <DefaultLayout titleHeader={'Promotions'}>

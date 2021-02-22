@@ -13,6 +13,7 @@ import { PersistGate } from 'redux-persist/integration/react'
 
 
 /**
+ * COMPONENT
  * App component : Enter point
  */
 const App = () => {

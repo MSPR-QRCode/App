@@ -22,19 +22,33 @@ import {formatDate} from '../services/date';
 const {height, width} = Dimensions.get('screen');
 
 
+/**
+ * COMPONENT
+ * @category Pages
+ */
 class DetailPromo extends React.Component {
   promo = {};
 
+  /**
+   * @param {*} props 
+   */
   constructor(props) {
     super(props);
   }
 
+  /**
+   * If codePromo exist : display codePromo
+   * @param {jsx} promo 
+   */
   displayCodePromo(promo) {
     if (promo.codePromo) {
       return <Text style={styles.title_code}> {promo.codePromo} </Text>;
     }
   }
 
+  /**
+   * Render JSX
+   */
   render() {
     const promo = this.props.route.params;
 
