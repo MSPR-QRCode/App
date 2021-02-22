@@ -32,3 +32,4 @@ target 'mspr_qrcode_app-tvOS' do
     # Pods for testing
   end
 end
+

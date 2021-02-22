@@ -1,7 +1,6 @@
 //Import React 
 import React from 'react';
 import {View, StyleSheet, Text, FlatList} from 'react-native';
-import { fakePromo } from '../../services/FakePromo';
 import ItemPromo from './ItemPromo';
 import LoadingList from './LoadingList';
 
