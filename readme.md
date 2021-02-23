@@ -5,23 +5,35 @@ Faites bien attention, on utilise yarn et pas npm.
 
 ## Bibliothèque importante
 
-| Librairie           | Version |                                    Description |
-| ------------------- | :-----: | ---------------------------------------------: |
-| React               | 16.13.1 | Bibliothèque JS qui permet de manipuler le DOM |
-| React-Navite        | 0.63.3  |      Permets de crée les applications hybrides |
-| React-Navite-Camera | 3.40.0  |                           Gestion de la caméra |
-| dayjs               |  1.9.6  |                              Gestion des dates |
-| redux               |  4.0.5  |                 Gestion du store(state global) |
-| react-redux         |  7.2.2  |         Gestion de redux plus facile sur react |
+| Librairie                    | Version |                                     Description |
+| ---------------------------- | :-----: | ----------------------------------------------: |
+| React                        | 16.13.1 |  Bibliothèque JS qui permet de manipuler le DOM |
+| React-Navite                 | 0.63.3  |       Permets de crée les applications hybrides |
+| React-Navite-Camera          | 3.40.0  |                            Gestion de la caméra |
+| prop-types                   | 15.7.2  | Permets d'avoir une meilleurs gestion des props |
+| react-native-vector-icons    |  7.1.0  |                           Icon de l'application |
+| dayjs                        |  1.9.6  |                               Gestion des dates |
+| redux                        |  4.0.5  |                  Gestion du store(state global) |
+| react-redux                  |  7.2.2  |          Gestion de redux plus facile sur react |
+| redux-persist                | 5.10.0  |         Permet de sauvegarder le state de redux |
+| jest                         | 25.5.4  |                   bibliothèque de test unitaire |
+| chail                        |  4.2.0  |           rend plus expressif les test unitaire |
+| testing-library/react-native |  7.1.0  |     simplifie les test unitaire en react native |
+| detox                        | 18.2.2  |                        bibliothèque de test E2E |
+| jsdoc                        | 5.10.0  |              Permet l'écriture de documentation |
+| better-docs                  |  2.3.2  |                 Ajout de fonctionnalité à jsdoc |
 
-## Conseil à appliquer
+## Architecture du projet
 
-- Utiliser au maximum les fonctions pour les components. Si le components est simples, une classe ne sert à rien. En revanche si on une gestion de state, cycle de vie du components etc. 
-- De meme pour les restes de l'applications, crée une classe est rarement nécessaire pour un projet JS (de gros projet JS se font entièrement avec des fonctions sans aucune logique objets)
-- On utilise yarn et pas npm. C'est mieux pour ce projets : https://yarnpkg.com/
-- Les appels API sont à faire dans le services 
-- Pour le store : un dossier par module (state, reducer et action)
-- Pour la documentation : On utilise la JS Doc : https://jsdoc.app/
+- ./animations : Component d'animation
+- ./components : Ensemble des component de l'application
+- ./pages : Ensemble des pages de l'application
+- ./navigations: Permet de gérer la navigation
+- ./services : Fonctions qui sont utilisées à différents endroits de l'application. C'est ici que sont gérer les calls API.
+- ./stores/actions : Ensemble des actions du store Redux
+- ./stores/actionsTypes: Ensemble des types d'actions du store Redux (constante de type string)
+- ./stores/reducers : Ensemble des reducers du store Redux
+- ./styles : Styles partagés par différents Components.
 
 ## Installer le projet
 
