@@ -6,6 +6,11 @@ import PropTypes from 'prop-types';
 //import style
 import {red} from '../../styles/color';
 
+/**
+ * COMPONENT : loading in the form of alerts
+ * @category component
+ * @param {string} msg
+ */
 const Loading = ({msg}) => {
   return (
     <View style={styles.containerLoading}>

@@ -8,6 +8,11 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { red } from "../../styles/color"
 
 
+/**
+ * COMPONENT : application header
+ * @category component
+ * @param {string} title
+ */
 const Header = ({title}) => {
 
     const inset = useSafeAreaInsets();

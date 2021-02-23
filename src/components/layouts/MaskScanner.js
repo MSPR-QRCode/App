@@ -8,6 +8,10 @@ const lengthMask = width / 1.75;
 const sizeBorder = 8;
 const borderRadius = 4;
 
+/**
+ * COMPONENT : Mask of the scanner
+ * @category component
+ */
 const MaskScanner = () => {
   const numbers = [1, 2, 3];
 

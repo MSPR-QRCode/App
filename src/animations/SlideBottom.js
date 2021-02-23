@@ -3,8 +3,16 @@
 import React from 'react'
 import { Animated, Dimensions, Easing } from 'react-native'
 
+/**
+ * COMPONENT : slide from bottom to top
+ * @category animation
+ */
 class SlideBottom extends React.Component {
 
+  /**
+   * 
+   * @param {component} children children's component 
+   */
   constructor(props) {
     super(props)
     this.state = {
@@ -12,6 +20,9 @@ class SlideBottom extends React.Component {
     }
   }
 
+  /**
+   * start the animation
+   */
   componentDidMount() {
     Animated.spring(
       this.state.positionLeft, 

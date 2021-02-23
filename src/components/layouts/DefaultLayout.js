@@ -10,9 +10,12 @@ import Header from './Header'
 //import styles
 import {red} from '../../styles/color'; 
 
-
-
-
+/**
+ * COMPONENT : Default application layout
+ * @category component
+ * @param {component} children application page
+ * @param {string} titleHeader
+ */
 const DefaultLayout = ({children, titleHeader}) => {
 
     return (

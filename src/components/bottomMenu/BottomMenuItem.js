@@ -10,7 +10,14 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import {red, grey} from '../../styles/color';
 
 
-export const BottomMenuItem = ({title, iconName, isCurrent}) => {
+/**
+ * COMPONENT : Item of the bottom menu
+ * @category component
+ * @param {string} title
+ * @param {string} iconName
+ * @param {boolean} isCurrent parameters that indicate the page displayed 
+ */
+const BottomMenuItem = ({title, iconName, isCurrent}) => {
 
   return (
     <View
@@ -44,4 +51,6 @@ const styles = StyleSheet.create({
       fontSize: 0.8
     }
 })
+
+export default BottomMenuItem; 
 

@@ -10,6 +10,13 @@ const initialState = {
   ],
 };
 
+/**
+ * Reducers for add and remove qrcodes
+ * @category store - qrcodes
+ * @method
+ * @param {object} state
+ * @param {object} action 
+ */
 const QRCodeReducers = (state = initialState, action) => {
   let nextState;
   switch (action.type) {
