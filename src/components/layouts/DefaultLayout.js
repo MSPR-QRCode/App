@@ -20,7 +20,6 @@ const DefaultLayout = ({children, titleHeader}) => {
 
     return (
         <>
-        <StatusBar barStyle="light-content" backgroundColor={red}  translucent={true} /> 
         <View testID='defaultLayout' style={{...styles.main_comtainer,}}> 
             <Header title={titleHeader} /> 
             { children }
