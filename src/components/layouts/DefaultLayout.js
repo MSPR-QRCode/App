@@ -10,14 +10,16 @@ import Header from './Header'
 //import styles
 import {red} from '../../styles/color'; 
 
-
-
-
+/**
+ * COMPONENT : Default application layout
+ * @category component
+ * @param {component} children application page
+ * @param {string} titleHeader
+ */
 const DefaultLayout = ({children, titleHeader}) => {
 
     return (
         <>
-        <StatusBar barStyle="light-content" backgroundColor={red}  translucent={true} /> 
         <View testID='defaultLayout' style={{...styles.main_comtainer,}}> 
             <Header title={titleHeader} /> 
             { children }

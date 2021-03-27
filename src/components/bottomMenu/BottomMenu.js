@@ -9,10 +9,16 @@ import {
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 //import component
-import {BottomMenuItem} from './BottomMenuItem';
+import BottomMenuItem from './BottomMenuItem';
 
-
-export const BottomMenu = ({state, descriptors, navigation}) => {
+/**
+ * COMPONENT : Bottom Menu
+ * @category component
+ * @param {*} state
+ * @param {*} descriptors
+ * @param {*} navigation
+ */
+const BottomMenu = ({state, descriptors, navigation}) => {
 
   const totalWidth = Dimensions.get('window').width;
   const inset = useSafeAreaInsets();

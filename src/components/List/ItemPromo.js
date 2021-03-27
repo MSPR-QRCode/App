@@ -8,6 +8,12 @@ import {red} from '../../styles/color';
 //import service
 import { formatDate } from '../../services/date';
 
+/**
+ * COMPONENT : Promo list item
+ * @category component
+ * @param {object} item 
+ * @param {function} navigate function that will allow you to navigate to the DetailPromo page.
+ */
 const ItemPromo = ({item, navigate}) => {
 
   const displayDetailPromo = () => {

@@ -7,13 +7,12 @@ import PropTypes from 'prop-types';
 import {red} from '../../styles/color';
 
 
-/**
- * Coucou
- * @author Corentin Lissillour
- * @param {*} props
- * @pro pro
- */
 
+/**
+ * COMPONENT : Loading for the list
+ * @category component
+ * @param {boolean} display
+ */
 const Loading = ({display}) => {
   if (display) {
     return (

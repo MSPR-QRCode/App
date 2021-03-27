@@ -4,7 +4,14 @@ import {View, StyleSheet, Text, FlatList} from 'react-native';
 import ItemPromo from './ItemPromo';
 import LoadingList from './LoadingList';
 
-
+/**
+ * COMPONENT : List Promotions
+ * @category component
+ * @param {array} promos
+ * @param {boolean} loading
+ * @param {function} loadPromos functions load a new promotions
+ * @param {function} navigate function that will allow you to navigate to the DetailPromo page.
+ */
 const List = ({promos, loading, loadPromos, navigate}) => {
 
     return(

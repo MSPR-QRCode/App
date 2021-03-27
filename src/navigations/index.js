@@ -15,6 +15,10 @@ import DetailPromo from '../pages/DetailPromo';
 import ListPromo from '../pages/ListPromo';
 import ListPromoUser from '../pages/ListPromoUser';
 
+/**
+ * COMPONENT : component that will manage the navigation
+ * @category navigation
+ */
 const Navigation = () => {
   const Stack = createStackNavigator();
 
@@ -32,6 +36,10 @@ const Navigation = () => {
   );
 };
 
+/**
+ * COMPONENT : component that will manage the navigation with the tab
+ * @category navigation
+ */
 export const TabNavigation = () => {
   const Tab = createBottomTabNavigator();
 
