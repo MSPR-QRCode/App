@@ -1,20 +1,39 @@
 {
   "testRunner": "jest",
   "runnerConfig": "e2e/config.json",
-  "configurations": {
+  "apps": {
     "ios": {
+      "type": "ios.app",
+      "binaryPath": "./ios/build/Build/Products/Release-iphonesimulator/mspr_qrcode_app.app",
+      "build": "xcodebuild -workspace ios/mspr_qrcode_app.xcworkspace -configuration release -scheme mspr_qrcode_app -sdk iphonesimulator -derivedDataPath ios/build"
+    },
+    "android": {
+      "type": "android.apk",
+      "binaryPath": "SPECIFY_PATH_TO_YOUR_APP_BINARY"
+    }
+  },
+  "devices": {
+    "simulator": {
       "type": "ios.simulator",
-      "binaryPath": "/Users/Aymerick/Library/Developer/Xcode/DerivedData/mspr_qrcode_app-daqmplrrebpfoyafvcdrzlwzabdx/Build/Products/Debug-iphonesimulator/mspr_qrcode_app.app",
       "device": {
         "type": "iPhone 11"
       }
     },
-    "android": {
+    "emulator": {
       "type": "android.emulator",
-      "binaryPath": "SPECIFY_PATH_TO_YOUR_APP_BINARY",
       "device": {
-        "avdName": "Pixel_2_API_29"
+        "avdName": "Pixel_3a_API_30_x86"
       }
+    }
+  },
+  "configurations": {
+    "ios": {
+      "device": "simulator",
+      "app": "ios"
+    },
+    "android": {
+      "device": "emulator",
+      "app": "android"
     }
   }
 }

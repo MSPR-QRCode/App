@@ -8,7 +8,9 @@
     "start": "react-native start",
     "test": "jest --env=node",
     "docs": "jsdoc -c jsdoc.conf.json",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "detox": "detox build --configuration ios && detox test",
+    "detox-build-ios": "detox build -c ios"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.13.3",
@@ -41,7 +43,7 @@
     "better-docs": "^2.3.2",
     "chai": "^4.2.0",
     "chai-jest-diff": "^1.0.2",
-    "detox": "^18.2.2",
+    "detox": "^18.6.2",
     "dirty-chai": "^2.0.1",
     "eslint": "^6.5.1",
     "jest": "^25.5.4",
@@ -62,5 +64,16 @@
     "transformIgnorePatterns": [
       "node_modules/(?!(jest-)?react-native|@react-native-community|@react-navigation)"
     ]
+  },
+  "detox": {
+    "test-runner": "jest",
+    "configurations": {
+      "ios": {
+        "binaryPath": "./ios/build/Build/Products/Release-iphonesimulator/mspr_qrcode_app.app",
+        "build": "xcodebuild -workspace ios/mspr_qrcode_app.xcworkspace -configuration release -scheme mspr_qrcode_app -sdk iphonesimulator -derivedDataPath ios/build",
+        "type": "ios.simulator",
+        "name": "iPhone 11"
+      }
+    }
   }
 }
