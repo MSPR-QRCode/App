@@ -43,10 +43,11 @@ export class Scanner extends React.Component {
       this.ifScan = false;
       try {
         const code = JSON.parse(QRCode.data);
-        if (code.idQRCode) {
-          if (!code.idQRCode.startsWith('MSPR_')) throw 'Not good idQRCode';
+        console.log(code);
+        if (code.idQrCode) {
+          if (!code.idQrCode.startsWith('MSPR_')) throw 'Not good idQRCode';
           this.changeLoading(true);
-          const promo = await getQRCode(code.idQRCode);
+          const promo = await getQRCode(code.idQrCode);
           this.props.addQRCode(promo.idQRCode);
           this.props.navigation.navigate('Detail', promo);
           this.changeLoading(false);
