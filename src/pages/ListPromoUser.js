@@ -25,7 +25,7 @@ class ListPromoUser extends React.Component {
 
   /**
    * set State (promosUser and isLoading)
-   * @param {*} props 
+   * @param {*} props
    */
   constructor(props) {
     super(props);
@@ -37,7 +37,7 @@ class ListPromoUser extends React.Component {
   }
 
    /**
-   * LifeCycle : react 
+   * LifeCycle : react
    * If the page is focus : reset List
    */
   async componentDidMount() {
@@ -47,11 +47,11 @@ class ListPromoUser extends React.Component {
   }
 
   /**
-   * load qrCode scanned. 
+   * load qrCode scanned.
    * Is called again when the user is at the end of the FlatList.
    */
   loadQRCodes = async () => {
-    const QRCodeScanned = [...this.props.QRCodeScanned]; 
+    const QRCodeScanned = [...this.props.QRCodeScanned];
     QRCodeScanned.reverse();
 
     try {
@@ -69,7 +69,7 @@ class ListPromoUser extends React.Component {
 
       }
     } catch (error) {
-      console.log(error); 
+      console.log(error);
       Alert.alert(
         'Problème de chargement',
         'Il y a eu un problème de chargement de la liste',
@@ -89,12 +89,12 @@ class ListPromoUser extends React.Component {
   };
 
   /**
-   * 
+   *
    */
   render() {
     return (
       <DefaultLayout titleHeader={'Mes codes'}>
-        <View style={{...stylePage.container_page, ...styles.container}}>
+        <View testID='promotionView' style={{...stylePage.container_page, ...styles.container}}>
           <List
             promos={this.state.promosUser}
             loading={this.state.isLoading}

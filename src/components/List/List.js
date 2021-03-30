@@ -1,4 +1,4 @@
-//Import React 
+//Import React
 import React from 'react';
 import {View, StyleSheet, Text, FlatList} from 'react-native';
 import ItemPromo from './ItemPromo';
@@ -16,7 +16,7 @@ const List = ({promos, loading, loadPromos, navigate}) => {
 
     return(
       <>
-        <FlatList  style={styles.list}
+        <FlatList style={styles.list}
         data={promos}
         keyExtractor={(item, index) => index.toString() }
         renderItem={({item}) => (  <ItemPromo item={item} navigate={navigate} />)}
@@ -27,7 +27,7 @@ const List = ({promos, loading, loadPromos, navigate}) => {
         ListFooterComponent={<LoadingList display={loading} /> }
 
       />
-      
+
     </>
     );
 }
@@ -40,4 +40,4 @@ const styles = StyleSheet.create({
     }
   })
 
-export default List; 
+export default List;
