@@ -42,7 +42,7 @@
     "better-docs": "^2.3.2",
     "chai": "^4.2.0",
     "chai-jest-diff": "^1.0.2",
-    "detox": "^18.2.1",
+    "detox": "^18.9.0",
     "dirty-chai": "^2.0.1",
     "eslint": "^6.5.1",
     "jest": "^25.5.4",
